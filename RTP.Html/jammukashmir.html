@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ice Stock Sport - Jammu & Kashmir</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 2500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 5rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: 1.8rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #2979ff;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #2979ff;
+      padding-bottom: 10px;
+      font-size: 2.5rem;
+    }
+    h3{
+      font-size: 30px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
+
+    .featured-image-container {
+      width: 50%;
+      margin: 30px 500px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      height: 400px;
+    }
+
+    .featured-image {
+      width: 80%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      padding-left: 200px;
+    }
+
+    .featured-image-container:hover .featured-image {
+      transform: scale(1.05);
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .featured-image-container:hover .image-overlay {
+      opacity: 1;
+    }
+
+    .image-overlay h3 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .image-overlay p {
+      font-size: 2rem;
+      line-height: 2;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .rules-list {
+      list-style-type: none;
+      counter-reset: rule-counter;
+      margin: 20px 0;
+    }
+
+    .rules-list li {
+      position: relative;
+      padding: 15px 15px 15px 70px;
+      margin-bottom: 10px;
+      background-color: #e3f2fd;
+      border-radius: 5px;
+      counter-increment: rule-counter;
+    }
+
+    .rules-list li::before {
+      content: counter(rule-counter);
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: #2979ff;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
+    .benefit-card {
+      width: 30%;
+      background-color: #f4faff;
+      border-left: 4px solid #66a6ff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      background-color: #66a6ff;
+      color: white;
+      border-left: 4px solid #2979ff;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 10px;
+      color: #2979ff;
+    }
+
+    .benefit-card:hover h3 {
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .benefit-card {
+        width: 100%;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .featured-image-container {
+        height: 300px;
+      }
+    }
+    li{
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ice Stock Sport</h1>
+      <p>Frozen Precision from Jammu & Kashmir</p>
+    </header>
+
+    <section>
+      <h2>About Ice Stock</h2>
+      <p>Ice Stock, also known as Bavarian Curling, is a winter sport that is rapidly gaining popularity in Jammu & Kashmir. Played on ice with a heavy stock, players aim for accuracy and strategy—similar to curling.</p>
+
+      <div class="featured-image-container">
+        <img class="featured-image" src="data:image/jpeg;base64,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" alt="Ice Stock Sport" />
+        <div class="image-overlay">
+          <h3>Precision on Ice</h3>
+          <p>J&K embraces Ice Stock as a sport of skill, balance, and freezing fun!</p>
+        </div>
+      </div>
+
+      <p>Jammu & Kashmir’s icy terrain makes it ideal for developing winter sports like Ice Stock, especially in Gulmarg and Pahalgam.</p>
+    </section>
+
+    <section>
+      <h2>Why It’s Famous</h2>
+      <p>Ice Stock combines winter environment, traditional sportsmanship, and growing international interest. With support from winter games federations, J&K is becoming India's Ice Stock hub.</p>
+    </section>
+
+    <section>
+      <h2>Basic Rules</h2>
+      <ul class="rules-list">
+        <li>Each team has players who slide the stock toward a target (Daube).</li>
+        <li>The closest stock to the Daube scores points.</li>
+        <li>Strategy involves knocking opponent stocks away.</li>
+        <li>Played in rounds with alternate throws by teams.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Benefits of Playing</h2>
+      <div class="benefits">
+        <div class="benefit-card">
+          <h3>Winter Readiness</h3>
+          <p>Builds balance, endurance, and cold-weather resilience.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Strategic Thinking</h3>
+          <p>Like chess on ice—requires calculation and teamwork.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>International Exposure</h3>
+          <p>Ice Stock is played globally—opens opportunities for competition.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Jammu & Kashmir’s Ice Stock dreams glide steadily forward—graceful, bold, and icy.</p>
+    </footer>
+  </div>
+</body>
+</html>

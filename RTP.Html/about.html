@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(85deg, #72a7f8, #d8e0ee);
+    color: #333;
+}
+        .about-section {
+    padding: 4rem 2rem;
+    animation: fadeIn 1.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 9rem;
+}
+
+.about-container {
+    max-width: 2000px;
+    height:50rem;
+    /* margin-top: 10rem; */
+    
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.about-container:hover {
+    transform: scale(1.01);
+}
+
+.about-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+ p{
+    font-size: 2.3rem;
+}
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    padding: 1.5rem;
+    border-radius: 10px;
+    flex: 1 1 250px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2e86de;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+     .features {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="about-section">
+        <div class="about-container">
+            <h1 class="about-title">About Us</h1>
+            <p class="about-text">
+                "Sports in Bharath" is a project dedicated to promoting the rich and diverse sports culture of India.
+                From ancient games like Kabaddi and Mallakhamb to modern champions excelling on global stages, Bharat's sporting spirit is unmatched.
+                Our nation has consistently produced world-class athletes who have made their mark on international platforms — 
+    from the hockey legends of yesteryears to today's Olympic champions in javelin, boxing, and shooting. 
+    Sports are not just games here; they are a celebration of unity, strength, resilience, and discipline.This platform aims to shine a spotlight on grassroots talent, raise awareness about traditional Indian sports, 
+    and motivate the youth to embrace an active lifestyle. By sharing stories, achievements, and upcoming talent, 
+    we hope to build a vibrant sports ecosystem that honors both our heritage and our future potential.Whether you're a budding athlete, a sports enthusiast, or simply someone curious about India's athletic legacy, 
+    "Sports in Bharath" is your gateway to discovering how deeply sports are woven into the soul of this great nation.
+            </p>
+            <p class="about-text">
+                Our mission is to inspire youth, educate people about traditional and modern sports, and celebrate the achievements of Indian athletes through this interactive platform.
+            </p>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🎯 Vision</h3>
+                    <p>To ignite passion for sports and wellness across generations in India.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏆 Achievements</h3>
+                    <p>Showcasing India's milestones in Olympics, cricket, and indigenous sports.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤝 Community</h3>
+                    <p>Connecting sports enthusiasts, players, and institutions for growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

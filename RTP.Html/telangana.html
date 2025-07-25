@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton in Telangana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 180px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Badminton in Telangana</h1>
+            <p>Shuttle, Speed, and Skill</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="badminton2.jpg" alt="Badminton in Telangana" />
+            <div class="image-overlay">
+                <h3>Badminton in Telangana</h3>
+                <p>Badminton has gained immense popularity in Telangana, with a growing number of players and enthusiasts contributing to its rise in the state.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Badminton in Telangana</h2>
+            <p>Badminton is a well-loved sport in Telangana, with a rising number of both professional and amateur players. The state is home to numerous badminton courts and academies that help nurture young talent and foster the sport's growth.</p>
+            <p>The government has also been focusing on improving the sports infrastructure to support badminton players and create a platform for them to excel at national and international levels.</p>
+        </section>
+        
+        <section>
+            <h2>History of Badminton in Telangana</h2>
+            <p>Badminton in Telangana has seen significant growth in recent years, thanks to the state’s investment in sports infrastructure. Though the sport has been around for decades, it gained prominence with the rise of Indian badminton stars who hailed from different parts of the country, including Telangana.</p>
+            <p>The state has seen a rise in the number of players representing the state at the national level, making Telangana an important contributor to India’s badminton scene.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Badminton</h2>
+            <p>Badminton is one of the most popular sports in Telangana. The state has produced several notable badminton players, and it continues to develop local talent through district and state-level competitions.</p>
+            <p>The establishment of sports academies and government initiatives has encouraged more youth to take up badminton, creating a wider interest in the sport across the state.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Badminton in Telangana follows the international rules established by the Badminton World Federation (BWF). The sport is played in both singles and doubles formats, with specific guidelines for each event.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Scoring:</strong> Badminton matches are usually played to 21 points, with players needing to win by 2 points. If the score reaches 20-20, a player must win by a margin of 2 points.</li>
+                <li><strong>Serving:</strong> The server must serve from behind the service line and alternate sides after every point scored. The receiver must remain stationary until the server strikes the shuttlecock.</li>
+                <li><strong>Faults:</strong> Common faults include hitting the shuttlecock out of bounds, touching the net, or serving incorrectly.</li>
+            </ul>
+            
+            <p>Badminton competitions in Telangana adhere to these international standards, ensuring players are well-prepared for national and international competitions.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Playing Badminton</h2>
+            <p>Badminton offers numerous benefits, both physical and mental:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Badminton improves cardiovascular health, enhances agility, and builds endurance. It also strengthens muscles and promotes overall fitness.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Focus</h3>
+                    <p>The fast-paced nature of badminton sharpens mental focus and improves reflexes, concentration, and strategic thinking.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Social Interaction</h3>
+                    <p>Badminton is often played in doubles or mixed doubles format, which helps foster teamwork and social interaction among players.</p>
+                </div>
+            </div>
+            
+            <p>These benefits contribute to the overall well-being of players and make badminton an excellent sport for individuals of all ages.</p>
+        </section>
+        
+        <footer>
+            <p>Badminton in Telangana is growing rapidly, creating opportunities for young athletes to shine and showcase their talents at national and international levels.</p>
+        </footer>
+    </div>
+</body>
+</html>

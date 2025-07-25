@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey in Odisha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 150px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hockey in Odisha</h1>
+            <p>The Heart of Indian Hockey</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Hockey match in Odisha" />
+            <div class="image-overlay">
+                <h3>Hockey: The Pride of Odisha</h3>
+                <p>Odisha has long been known for its contribution to the sport of Hockey, both at the national and international levels.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Hockey in Odisha</h2>
+            <p>Hockey holds a special place in the hearts of the people of Odisha. The state has produced many exceptional hockey players and has contributed significantly to the national team. Odisha has been the proud host of several national and international hockey tournaments, including the prestigious FIH Hockey World Cup.</p>
+            <p>Odisha is often regarded as the "Hockey Capital" of India, thanks to its long history of excellence in the sport and its passionate fan base.</p>
+        </section>
+        
+        <section>
+            <h2>History of Hockey in Odisha</h2>
+            <p>Hockey in Odisha dates back to the early 20th century. The state has a strong legacy in the sport, with many players making their mark in national and international competitions.</p>
+            <p>Odisha has been a frequent host of international hockey tournaments, further strengthening its role as a hub for the sport. The state government has also been actively involved in promoting hockey, with several grassroots initiatives aimed at nurturing young talent.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Hockey in Odisha</h2>
+            <p>Hockey is the most popular sport in Odisha, with a massive following across all age groups. It is played at various levels, from school and college tournaments to national and international competitions. The state's deep connection with the sport is reflected in its rich hockey culture, with passionate fans filling up stadiums during tournaments.</p>
+            <p>The government of Odisha has been instrumental in promoting hockey, with a significant focus on infrastructure development and organizing major events like the FIH Hockey World Cup in Bhubaneswar.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules of hockey in Odisha follow international standards set by the International Hockey Federation (FIH). The sport is played between two teams of 11 players each on a rectangular field with a goal at each end.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Match Duration:</strong> A standard hockey match is played over two halves of 35 minutes each, with a 10-minute halftime interval.</li>
+                <li><strong>Objective:</strong> The primary objective is to score more goals than the opposition by hitting a ball into the opponent's goal using a hockey stick.</li>
+                <li><strong>Fouls:</strong> Various fouls such as illegal tackles, high ball hits, and obstruction can result in free hits, penalty corners, or penalty strokes for the opposing team.</li>
+            </ul>
+            
+            <p>The state's hockey associations follow the guidelines of the FIH and the Hockey India Federation (HIF), ensuring that competitions are fair and players are well-prepared for international events.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Participation in hockey provides numerous benefits for players and the community:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Hockey enhances cardiovascular health, muscular strength, endurance, and overall physical fitness, promoting a healthy lifestyle.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Toughness</h3>
+                    <p>The sport requires quick decision-making, strategy, and mental resilience, improving concentration and focus under pressure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Teamwork</h3>
+                    <p>Hockey fosters teamwork, communication, and collaboration, encouraging athletes to work together to achieve common goals.</p>
+                </div>
+            </div>
+            
+            <p>The benefits of hockey go beyond the field, helping athletes build character and strengthen community bonds through shared passion and dedication.</p>
+        </section>
+        
+        <footer>
+            <p>Hockey in Odisha is more than a sport; it is a way of life. The state's love for the game continues to inspire future generations of players and fans.</p>
+        </footer>
+    </div>
+</body>
+</html>

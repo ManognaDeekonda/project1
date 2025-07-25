@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis in Tamil Nadu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 190px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tennis in Tamil Nadu</h1>
+            <p>Game, Set, Match</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Tennis in Tamil Nadu" />
+            <div class="image-overlay">
+                <h3>Tennis in Tamil Nadu</h3>
+                <p>Tennis has grown in popularity in Tamil Nadu, producing some of India's best tennis players and contributing to the sport's development in the country.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Tennis in Tamil Nadu</h2>
+            <p>Tennis is a popular sport in Tamil Nadu, with a long history of top-level players and prestigious tournaments. The state is home to many tennis clubs and courts, which have helped nurture young talent. Tamil Nadu has produced many well-known tennis players who have represented both the state and the nation at various international events.</p>
+            <p>The state government and private organizations are continually working to improve tennis infrastructure, making the sport more accessible to the youth of Tamil Nadu.</p>
+        </section>
+        
+        <section>
+            <h2>History of Tennis in Tamil Nadu</h2>
+            <p>Tennis has been played in Tamil Nadu for several decades. The state's tennis history includes the establishment of several clubs and facilities that have helped the sport thrive at the grassroots level.</p>
+            <p>In the mid-20th century, Tamil Nadu began to make a mark in national and international tennis, thanks to the emergence of talented players from the state. Over the years, these players have participated in prestigious tournaments like Wimbledon, the French Open, and the Australian Open.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Tennis</h2>
+            <p>Tennis is a widely played sport in Tamil Nadu, with a growing number of enthusiasts and players. The state is home to several top tennis academies, and the Tamil Nadu Tennis Association plays a major role in the promotion of the sport.</p>
+            <p>The state regularly hosts national and international tournaments, attracting spectators and players from all over the world. Chennai, the capital city of Tamil Nadu, has been known to host the Chennai Open (now known as the Tata Open Maharashtra), a prestigious ATP event, helping raise the profile of tennis in the state.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Tennis is governed by a set of internationally recognized rules and regulations, ensuring consistency across tournaments and competitions worldwide. The Tamil Nadu Tennis Association follows these rules for local competitions to maintain high standards.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Match Format:</strong> Tennis matches are generally played in best-of-three or best-of-five sets, with players needing to win six games in a set, with a two-game margin.</li>
+                <li><strong>Scoring:</strong> Tennis scoring includes points, games, and sets. Players need to win at least four points to win a game, with the score progressing from 15 to 30 to 40 and finally to game point.</li>
+                <li><strong>Service:</strong> Players alternate serving after every game, with the server required to serve from behind the baseline and into the opposite service box.</li>
+            </ul>
+            
+            <p>Local tournaments in Tamil Nadu follow these standard rules to ensure fair competition and allow players to compete on the international stage.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Playing Tennis</h2>
+            <p>Playing tennis offers numerous benefits, both physically and mentally:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Tennis helps improve cardiovascular health, muscular strength, agility, and coordination. It is a great way to stay fit and healthy.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Toughness</h3>
+                    <p>The sport helps improve mental focus, discipline, and resilience. Players learn how to stay calm under pressure and strategize during matches.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Social Interaction</h3>
+                    <p>Tennis promotes social interaction and teamwork. It brings together people from various backgrounds, creating a sense of community and camaraderie.</p>
+                </div>
+            </div>
+            
+            <p>These benefits help improve the overall well-being of players while also promoting a sense of community and healthy competition.</p>
+        </section>
+        
+        <footer>
+            <p>Tennis in Tamil Nadu continues to thrive, providing opportunities for athletes and enthusiasts to come together and celebrate the sport.</p>
+        </footer>
+    </div>
+</body>
+</html>

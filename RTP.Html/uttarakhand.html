@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagh Bakri in Uttarakhand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .featured-image-container {
+            width: 40%;
+            margin: 30px 650px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 180px;
+        }
+
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        section:hover::before {
+            opacity: 1;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+
+        section:hover h2 {
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-card:hover h3 {
+            color: white;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p {
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bagh Bakri in Uttarakhand</h1>
+            <p>A Traditional Game of Strategy and Survival</p>
+        </header>
+
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Bagh Bakri Traditional Game" />
+            <div class="image-overlay">
+                <h3>Mind Over Muscle</h3>
+                <p>A strategic rural game that reflects the wit and cultural legacy of Uttarakhand.</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>About Bagh Bakri</h2>
+            <p>Bagh Bakri is a traditional board game popular in the rural areas of Uttarakhand. Played between two players, one controlling tigers (bagh) and the other goats (bakri), it reflects the natural predator-prey relationship in a symbolic and strategic format.</p>
+            <p>The game is simple in its layout but rich in strategic thinking, often used as a pastime and a way of teaching logical skills among villagers and children alike.</p>
+        </section>
+
+        <section>
+            <h2>History of the Game</h2>
+            <p>The game has its roots in ancient folk traditions of the hills, passed down generations through oral culture. Its origins are believed to be connected to the mountainous lifestyle, where interactions with wild animals were part of daily life.</p>
+            <p>Bagh Bakri is closely related to similar tiger-and-goat games played across South Asia, showing its widespread cultural influence. In Uttarakhand, it remains an enduring symbol of local heritage.</p>
+        </section>
+
+        <section>
+            <h2>Popularity</h2>
+            <p>Though not widely commercialized, Bagh Bakri holds cultural importance and continues to be played in fairs, festivals, and family gatherings. Schools and cultural programs in Uttarakhand promote it to revive interest among younger generations.</p>
+            <p>It remains a symbol of traditional wisdom and is also studied by game theorists for its strategic depth.</p>
+        </section>
+
+        <section>
+            <h2>Rules and Gameplay</h2>
+            <p>The game is played on a simple board with intersecting lines forming a grid. The tiger player starts with fewer pieces and the ability to 'capture' by jumping over goat pieces, while the goat player aims to trap the tiger by movement and numbers.</p>
+
+            <ul class="rules-list">
+                <li><strong>Players:</strong> Two players—one controls three tigers, the other controls 15 goats.</li>
+                <li><strong>Objective:</strong> Tigers must capture goats; goats must block the tigers’ movement.</li>
+                <li><strong>Moves:</strong> One move per turn; tigers can jump over goats to capture, goats can only move to adjacent spots.</li>
+                <li><strong>Victory:</strong> Tigers win by capturing all goats; goats win by blocking all tigers.</li>
+            </ul>
+
+            <p>These simple rules offer countless strategic possibilities, making Bagh Bakri both fun and intellectually stimulating.</p>
+        </section>
+
+        <section>
+            <h2>Benefits</h2>
+            <p>Bagh Bakri provides more than entertainment—it fosters skills that benefit players beyond the game board:</p>
+
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Strategic Thinking</h3>
+                    <p>The game improves planning, foresight, and decision-making abilities.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Awareness</h3>
+                    <p>Preserves traditional knowledge and connects players to Uttarakhand’s cultural roots.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Social Interaction</h3>
+                    <p>Encourages bonding among community members across age groups during leisure.</p>
+                </div>
+            </div>
+
+            <p>Bagh Bakri remains an enduring game of strategy, story, and shared cultural identity in the hills of Uttarakhand.</p>
+        </section>
+
+        <footer>
+            <p>Bagh Bakri continues to echo the tales of wit, survival, and tradition in the heart of Uttarakhand’s culture.</p>
+        </footer>
+    </div>
+</body>
+</html>

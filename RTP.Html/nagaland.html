@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spear Throwing in Nagaland</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 210px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Spear Throwing in Nagaland</h1>
+            <p>A Traditional Sport of Precision and Strength</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Spear Throwing competition in Nagaland" />
+            <div class="image-overlay">
+                <h3>The Art of Spear Throwing</h3>
+                <p>A traditional sport requiring skill, strength, and focus, celebrated in Nagaland.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Spear Throwing</h2>
+            <p>Spear throwing is a traditional sport practiced in Nagaland, deeply rooted in the culture of the Naga people. This sport involves the throwing of a spear at a target, requiring precision, strength, and concentration. It has been an important part of Naga warfare practices and has evolved into a sport played in festivals and cultural events.</p>
+            <p>It is considered both a competitive activity and a cultural expression, showcasing the Naga people's historical connection to hunting and warfare.</p>
+        </section>
+        
+        <section>
+            <h2>History of Spear Throwing</h2>
+            <p>Spear throwing in Nagaland dates back centuries, originating from the Naga tribes' hunting practices and combat training. The skill of spear throwing was crucial for survival and warfare. Over time, it transitioned into a cultural sport, and it is now practiced during festivals like the Hornbill Festival.</p>
+            <p>The sport has evolved, with formal competitions organized in modern times, although it still maintains its cultural significance as a symbol of Naga heritage.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Spear throwing is particularly popular in Nagaland, where it is a part of the community's heritage. It is prominently featured in cultural festivals, especially the Hornbill Festival, which draws both locals and tourists from around the world to witness the skills of Naga athletes.</p>
+            <p>The sport is not only a means of preserving cultural traditions but also a way to strengthen community ties and celebrate Naga identity.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules of spear throwing in Nagaland vary depending on the event, but they generally follow traditional guidelines that ensure fairness and safety during competitions. The participants aim to hit a target from a set distance with a spear.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Throwing Distance:</strong> The distance from which the spear is thrown is pre-defined, with variations based on age groups and competition categories.</li>
+                <li><strong>Target:</strong> The target used in spear throwing competitions is usually a wooden or metallic target, often designed to resemble a traditional hunting mark.</li>
+                <li><strong>Spears:</strong> Traditional spears are used, though some modern variations may involve more standardized equipment.</li>
+            </ul>
+            
+            <p>These competitions are governed by local traditions, with the focus on skill, technique, and respect for the cultural practices of the Naga people.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Spear throwing offers numerous physical, mental, and cultural benefits:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>The sport enhances strength, coordination, and overall physical fitness, especially in the arms, shoulders, and core muscles.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Focus & Precision</h3>
+                    <p>Spear throwing requires a high level of focus and precision, honing concentration and hand-eye coordination.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Connection</h3>
+                    <p>The sport serves as a vital link to Naga culture, helping preserve traditional practices and passing them down through generations.</p>
+                </div>
+            </div>
+            
+            <p>The benefits extend beyond physical fitness, fostering a deep sense of cultural pride and community in Nagaland.</p>
+        </section>
+        
+        <footer>
+            <p>Spear throwing in Nagaland is not just a sport; it is a cultural heritage that brings people together and celebrates the strength and traditions of the Naga people.</p>
+        </footer>
+    </div>
+</body>
+</html>

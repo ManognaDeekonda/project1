@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insuknauur in Mizoram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 180px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Insuknawr in Mizoram</h1>
+            <p>The Traditional Sport of Mizoram: A Test of Skill and Strategy</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXFxoaGBgYGRgZHxodHR8YIBkdGCEfHSggHR4lGx0YITEhJSkrLi4uFyAzODMtNygtLisBCgoKDg0OGxAQGy0mICUtLS4tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgQHAQIDAAj/xABFEAACAQIEAwYDBQQIBQQDAAABAhEDIQAEEjEFQVEGEyJhcYEykaEHQlKxwSNi0fAUM3KCkqKy4RVDU9LxFiQ0wheD4v/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAtEQACAgEDAwIFBAMBAAAAAAAAAQIRAxIhMQQTQSJRMmFxkaEFFLHwgdHxQv/aAAwDAQACEQMRAD8AUc/2VQZsrRdaYALL3q6JKFpKyI064HUj2krwul3al6lHQVUITpeBBnwg6jElrr4Y6DDOtEVGqpmKaNl2JajU1jUSbmmIuNJJG94Jx3z+Xp1afj06YgpJNiPPaOvUeuN8vTRmnT/NHKsz2TQncCzwaoSyJcmGiSVOiIbY+JVx21tTBSqApZiFqSCsljBW1jG4PQ46NwopUenQhaQaQdS3kMFSlFmINmi9p5Y2rcP7ukq1m8XeakmB4vwnV525b487L08oyNk1JErv6a0grEVOTHw3BnxGPP8ATphTzXDlaqGgaGBKm8kgnwsZmTAHpqvjnx7OVEF6gBBbbUNyYA52UgX8/LEalxKMrUDCSQFJPxCPhAvMQOfliYwl8VlONEbJU6NOsauYXVSSV0gydYIjVawi5PUjrGIWcdO8DU6YhSW8REMAZHTlEn19ieSNKrpNae7JE8pjSokzYAAE+dueNOIZYikEFIs6uKeqnJSoFAK6xsTAA89J6Y3T3K8BLs7w1qo0l+51QO6HxEDxahba435K28Yk8fyS0kdykBSuvSCQxLEhzPLUAN/K18GuzQNLL0qtSmO8YRPxGGnSOotYj0xH7dcSV8pmKajZUM7XD0yRHlO4tvtjl7knlrwJWRM/k6hp1a7hQLgIu4U6R4SGIA1AFhAmNyL4Sc3VgsQBpDFZAgGBAty8IPLrizO0GSNTJCmrBW0g6SCTNmgR53LCR6YWcr2dnLrRqqtKpUrSLgllUGSTJ0gGRzN/PGuKaa39wE8KGU7WKxAveLDr6Yi1aeliJmDhqynZw907NVVFRn+KdVRUkgU1gEkkHnGFzO0ipDaSBO5Fid/DFogqY5TjoTsYQ4FxU0O8hiJFiJgESVMeoHzOI1KoZAnUSQSDcktBJnnyBBm+OvEOElBQIYHvU1WEQLGTJvY72+HGvCqbA6knWsFSo1DmZMSRy5Ww3wBb3ZfhKUqAFvENR2M9NvLp0wD4h2do1qpPcPTHjDGwLk31gNGmGi0bTtAwS4bxkvRUO1XXF2p5eowMgwtM6InYkmBf3EyqHTxUsuFDR3hLAuRI3JJ1NFrt06RjhTcW2+RpbCRxbgppliNK0nbT3SeFwvVNQJiCzG5jSQSAYxO4FlqSIErDRUDMQrDcBXK6rAMn7ymJHKcQu0PEXTNlyAqsoXTqmVvuJI2MzBid7Xg8S7TVSmjmoncmSSJaZkTMadhNuYxv6pKidjvxviempTrKQTLMDAK+CyQRpPLRGx6nEXs52arVaBrBoU6iunSzFl5RvJP6YX34gxplDBB2kTpuSdPScFuznaOtl1CLVASZ0spYC4uBzsWMAiY9J6sWlP1CknWwUr9hKo3JKx4Qinc6bkR4R6wTA88PnAeyeT7j9mH01aYDSWBmACf7UifIgxif2Y4hRz1E1AAYaGUqRGxAv5QeeD1GgFGkT7/z9MengwxW9I8/Nml8In5TsnRoJUGkJ4mFNtReQwuDIEbfOet697b0BppsCCac03sAZ5G1o8vPFs9rOPLk6Wo/E0xty/nzxU+ez3fLUFQKNcMGiwJ2A9NI59eUDHJ1jipKMVwdHSuTTlIUmx0pfz/5xtToEyDuPPmMbGmFsenLHHZ20dMhlmfWQRIGx3aTsPkf5OCVHs/WrP3VMKXUAsFZTEjVHqOZmB1wzfZHlAf6RVZkAUKsNF2bVpibTYj+8cNXCBSyVJ6y1kdQAz00gKQ2nSygBiDv4RvOOvFgUlqkzlyZabSK+4pwFqNSnRohnJg3BnU+rRqlQNhIEm/viP2iNam9UsWJaRVjTpVj4fFoEcgBPQ88FeO9p6lWpSNekNShDIBWZVWAYHkTcjYFdzE4W+LcQNVnGgAsxaFLQLmFIJItJNou2IyONvSVFS8kPL5kBWGlTKkSd+fw9Lwf7uIwQxIB0yATFpMwPUwbeRxI7oaQwKn4fCAZJg2FrxAk/vDrjfJUW70IUOoshAAOq+wXkNUiCbbXxiaEjg+YC1FmmGRmCssCGW0rfY21T1Ax17RaKgFZRDFij+IMDFlI57D5EHnJl9q0FGt4KegEyFOi5UsCYBOn3vbAziPDqlOkrsVCufCuoFtjDQNhHPnbFbpNB7M68BynfHSW+EqdPVZvEkedhczbB/i2Xp0qrU0y9OoqwAxVhMc/CxBnefPA/sjnGp1SKdJWqOsJ4tJHmCeZ8o2+eMzkqykAayY8WkT4pIP3h0nbnjPyDY05HgiNFIZg1EpFhpBnRLOQT0MR4hzSxGD9DKqKSZQoapd4Rj/Wa9ICwxaw8Ptfrg19n3GlzoZGyi0amkORAIdTYMCRtYi/Tc4ONnKFNgUpISCSTAWIta2/y9cV2N71met8NCVxns6wy9Nny4oVkYFKupEB0kmIGxIk+pOBue7YZvQGZaNaloDM4Rk5gkEG8+Ejr8R5YZe0OdbMuSu0wuonwwDeAfcYWuKcMV1LMTW0iAq2JMgQQCFNi1j0GIlNwezC0xBqVHquaiALTLEim5lQJO5be8wPO22IFWwAawNpg7EzIt0jY304IcbrlnJ/oxQqsGdXkRaY8P1kTgRVR4kowBPQgHf/AHw0aDDw2jSqHwMyqpCr3gU9T4rgSY5THSCThgPD6dGn3C1TqV2LA/eBIKnpIMiYE+0YS6HGNNE0zSEzIcGCLGxsZB9tsEF7TIxbvKb3FtLizX6rGm5tE354znGT4LVUOuSzblmpMjAgSGDqSAVWSJInmfLpbAfjGb7tGBDGoigBbHdlJ1EHwsQRYT0tgfk+0eTXL6Go1mqSTJKm5M2bVIFhywu5ziJqMWJMmN2J2i/rjKGJ6t0RbssvIcUcoQysKZXwAWJTmQZ3An1nC92jSpmKiVKOoAICssAUE+L7whuZv93zxEyXFETLJTXMAkG4OoEFiwIUkWGmDNvi8rycxlnA0EmmgafFYAE2YMDeZBHLy3wRx6JWKnZs+aapVWgkEbi55ACGn4pFyCL7dDjHbmiRlacgau8UseZJSDPoRGCuS4W5A8KHRpnUu29yPCeokTFvMAN264grotLTpKKjeGCCbrDHVvEmfFNvM4cd5JItVQFyK1K2l6jeHStFWM+EKBpCxO/wzG7Ym8OzLqHrUAy3jUSJIsYFuRgkz8ovzyuZZsulDLgrKk12Fy0sQoHkRy9ehONjXalTWkqidWlhDAkyfECbLNr+VsbvcKJtDtRmIKK4UPYEgHTvN5sTeTF+mOWd7S1FrHu6pg2YNOkibxJn6DnEc4XD1oEgMe7uEYMNYnxXIEeVwDBxJfs8S6axINmCtJUBtKuZ2BgkSQDsCMRpgnwTZxXK97LC2ptKRcatSzEmSuhtUCbTMAGe3E+CVKSa20MykIygGxk7ESJNjNoi18T6OWOVqGno1JpYU614psykhrixUdRIAnc4h57PVXJoUAASIbRcsAdngEMdRtpMRFhypSvgaFvOZciWK6BqgKZJgyfeNpwc7G5PL1c3SoVELBlaTMS2mYiTIEHpPlgXXps7JRmWZ7gqykMxAIYeURYcsP8A2M7KVMvXd6xQsE8IHitquTYRsLzzIw5ySQ0tx6yYXLxTRVK0/CApYA2sbD198EDXOguYUeRBuQTAk9B9eeAlRxJGysRI2NoIPPGDcXHOenKPyxzR62cNrZLxQfKAPa7hTZpizqDoA0MNRNrkFdQBnqB+mBPE+zyUsk4NQ6mNOsq6CNMypU2BiC1jtG1sPKUxEXIMzt9Iws9sc1SSn3bPBCyEvDA7g3HIe3vjbH1VvdXZPbrgrKiP2jDw7mNJtz+E9Ma16s2bkCB5TH8+2PZaoC8gQJ23gdPP1xrnjcc7C/8AHFeTfwO/YDK6slmYGpndV0Dd9IVgouBeT7T64LdqMyMmXZWXWyqWi51EQw1M3xwAxMeKBYc1bs9nqy5UUaBOt2ckg3HwjTt4ZgGRM/KIWdzwWW1CsGUqzNYmJA81EiRsYtaZxtHLKKpHPKNyIGfzzDUpbUdRE6lb+0R7xBG4FsYPDK53SAFVi20ByFUsTtJIvt4sdOEZL+kuFBSmwUDpquAzGT4mhjYbwMT+K5yll6+mjoqoF2L94oJsRIsRY2llOud9kl5LIHBuHVKlZFptpqFjpaxAABJcmbKLXg2JidjH4NRL1VphgO8DLN+YO8XN4Mc4w8cI7C5jPUP6U2ijRaYUhiFVIC6JedgVMxYTcwMI3FeG1cu6pURqbaVaGsYbbb0I/hgGEeJZCmtGlmFq94TAamwEqYJtDGUt+cxae/azjwr06dLQJp6R3koxYBSAJUCwvH5TgZxLh9elTRqikISdNovcX530GJ/CYxrxLh/d0aL657wTpjaykGefxH0jBqrgVe5ns/VBr01YOwMrCDU9xC6QTe8W6Thz4n2WzNF9CPaJkF2m59IMQCL3G5wodkjGZVyCQgLEKWVto8JXZpIIm3XD5xU5Wq4ZKpbwiSXpzq56jpGpupv64qCT8ETe409muJkZfKII/qKYEWEaV623k4KcZhwuiNaTe4BmNtxYDfA7KUNFNFWDpRQpAiAAB7W5Y6qxHxRN+USN7b8pF+mOSedJWi0n5BT96qNqUSCCYJJ03vFz0+eEvOccYeFXcap+Fen/AE7kzN9R236y39oeP0qAKsmpmUysQD0BkREReLRiucpWqOS5Zl1SiAEnwzLBmmQB13w1PWraI07gmvVYmWJYkkeI6oFufXlbp54b+zPGUzB7utTp6aa6kLAkBrDxXtO1vOInAWpkU1rpR2pqkNoBkHYGYIuYPnJwcyfF1bL1NSoHRWZRpCltAJUvEHfcWmehjDnwXRvxDimVq0atBmViNWlwr+EgErciI1iAAbjCzwWpTajmUchGfQVa021kqB0J0yeQXzwGNX5neOeNqSxOpCQIM3EfpB/QYuMFFUhjLlFoqSuYio7imVbRECBt1tbaDGNOF5JK9TX3Q0g/CqwCQRYAQJuLE+0YBJm5Kh/EFEC5EdL+Rvg72KZGeotRnLESqgsAYkuTHPSMGmtwSClPLmkj1SlyZQAI1M7ALEfhgX5g8985LNgoqlgp1FgpAso8QsRcA7X2PKcM/ZzJVGVWqMxBjSXZnE84WYbkQdP54RuK59RnKzsiOlHVSCT3UgMQCBHUk6SNuWITU3S8Gk8bjTY98Mrv3CmkoOqQFkzEkGwbe2/Uzywq/aPTYpSqOuhpKkW2N4JsSVKkXHXELs/2oqUVpsGIWk4lA0agwIlhHiAPU8xa2BXabPNXqF7mnrYqTH3okgC4BImD15YUMVSshnLI8UNKkVSVY81JBJuJJ5QpgRglxalUSgpZ1aSDMy676b81Ig35FTYmMTezHBaQFKtVqAKQSSDJFz4YHOBN+u2xwuZlxoBDA94CzrBGlpNgSADNj4fTGuzYiVwbLPVeFXVOrxsDCzHiaJjrH8bPg4BVoA1WqGq0EDweEjkAJkgeZ2wp9mWWmCveOGfV4ZgEC3pM845HyxY3BO1OXrAZNlJZVDMYXSCkEknlB036nyOMMspXstjqwY8co+rkWq3E3qZZagZ9ah6jKLFriRA3iN94mRvgW3E6IH7FIqVFbUZdtLmDFMG0fCYAtHkIl0uCualYMKYVz+yrOgBgyZBEEH4ukk72Ax584+RY0hTDKBTcONTbg6madMk3i4MAC4+ESS2icrVMW+HZgtnqNTMH7yuxBJJ5gHe+wj0GLA492iTLsvg1645qAgUc7HxXmSdwI54ravxJ61armHDGo1wySoRvDBm9gBHvg7xHNI7rpRxSdSqkmZHhCiDEN4esQZttjScNTVgh8y/F8r3XePUOpmVUUTuSZnqAoibDHPj3aChlID6i7DUEAkx1kmInn/DFc8C4QatUUi/dvqkKVJsN46WuCel8de1OWZc2Q4c010opYknQBzgTvJ254zeKF0WrZYHCO01KqyIyujPOnULHykEif/GBnbzuxo7yqUVwVZBqYPBBWbjTBPxemIHCaaJoU03ElXV11OJkRYqGHXYDfpjh2/zAzLImWHesmrvBTViywQIbqJB/3nExx1Pbgc40J9JAtRgLhS0GQeoBkWPK4xFq877Yn5fLvTZldYYQCDym+INcb+sY6FyFekLcMzBFFVWJ1ktyJ2gb3EA7DnvjRcmzCowXwgFrkQoF7zc2m3n84uRUvpQQAA2pvISTNrc/njjUBLaROmTpteOXK5/XDozok8PyDZmrpQBFgF25IgKhnbyBIMeeDz8Hy9ChTqCs7tUdxPdwrIhKko2oFQwN5udUQCuFpdYSdUKPun7wN9uYkc/LEnu61RQ4BKJAAE2BNrDlqPuTh2FPwNnCOIU6Veii1iECIjmhYuNayxJkhrBhpE7CxwC7Rqz56nTUlo7tEDangkyRLwXXWxhjZgZ54j0aEI9UIZFjpcixiZ+8bT5b9MQ6FNTUVizU1jUWEkrExF5+IdeeBMFwWV9rHDs4ysxXXRphTqFgkEKTpkm5gWNguK54wHWll1ZwwKF1jcKTFz6hrco2xOXj2Yp03yy5pjQe7IdLAqwGreSpjcA2I5HAXOUYYKGkQIO1jf8AMnFOnwCTJ/ZniT0HqaAS1Sk1MCYuShH1UWFztjNDNmnKmleZNz+s/niAmTbQ78kZVJ3+LVHLyxxZCbzPnhBRfeVzy92hLXKrMQY2kn3wvcc4syi+md0YWiTEvIMe/TET/iLLXNUeAETFhaB8Um19UGMSeI8QWqh71YESpABMfduATcafPbbHCsaSsJNp0KfGuM1KtVdL69EBSQL8zyveB6Rjg+YLAIg01Kal3LP3ehifEEHwi35m+C2V4fT72m0CojNqQDSYBbaoR+oGnAbtvlDRqorKA7JqYKxKwWMATfkTvzGNoSi2ooUXuad9SNMAuR+01SBLfAFiDvBE388aZDuR3vjNQshRAqAEk/e8R6A2HXrGOaZ6mcmKQog1FckPqm0hpK87SOnXz3rlHoLXprorKwkUpUL4hDnpciI5sMbUUkgd/wALqqod6bBCTDEWJEzHXZv8J6YxxDLMhCkGIkNBGsWggHpOJC8WqAh3PeKzSyFgQdJkAjcXi/P54mf0uvnXp0hTQkyABMCxAJvI0iTf1vgbaKSi18zvwbsZmKiNWam3dqJOm5/vdBF/4Yn9n6y5fV+zXxEQ97FQYHpJk4f+z3Ef6DlSjhlFIFWaLNJPiB56iZ98I6UNaSikiSRAJHpOODJnlb9j6b9O6HDmx6ZRSa3u93/z5DF2a453C1EWoRaVIEjV0HK/pGK47S8Nq062urJ7+aqtHxBmaTHXUDb0PMYc+BcLerUWitma5JtAG5wG7d8ZDZ4KoHdZYGigYSDp1BjHm0gH90HFdI25P2M/1vp8GHHGK+N7/RCzQzBAFMKsd4rNPOLAN0USZ9fLHPPnxRCgCwCwRF+Y3PnibksynfOz0wytMfEoF+QHlyxjg+Vq1KsolgylgDFp2BN5PvjvPm6OLZqoaYXvZUbKYMWItzH/AIxxzGWdIDKQYmCDYYZ+1mSpqlKvSgAGGDSS7SYPmIBta3ywO7TcYWuV00kpKupSEjxEaSeQtMRhDaSImdYgqwCkNqCgXNzeeZJJkHBngNIhxNN6RJ8ZLEhx4rHn8Qg/lvgNwbiHd1A7X3ub7x/PpOGvPMKrU2oq1QqAVCBm6fhHLoY3xE34Kgnyg/xLtItMBBFoAEdRb6ThP7Zrq7monhWGQrYBTMyOmodOa+eJx4PXY09NKW16mmIWzATexkm3Ue2JnaPh5OSqBgNaFagIg8wDNp+Ek/3YO91GuQkivQ7AFZsTccpEgH6n54nUawlA4i+nUCPCLXURAgkta998aZSqgsUBkAfx/TENiQSBMAnG1bGZbnB+M0auaCLl0V6dK9YKWFTQIckTeNXxCZAOBfGs1SrZpqdGHddKAAfGQoB0iTOxFumwwgNxJ9KgMwhdNjuLyCOYIjfph4+yvL0u8L1aaOzA6SyiwBgx5m998c+eMdNs6umlJT9JY/Y3gLtSU1KKUyZksoL3m/UHbcz5Yhcb4LV4bTasjB6AdiSVJKKxJhoYSNRsfMe7b2Trsgq0XYsKb/s2Y6iUZVYAk3JUkrJvbB/NUEq03puJR1KsOoIg/THzMOuy4s7jkaq+PFG3UNylufJ9euXeq7GS7Tz3vAH0wKzXxHBztRkf6NmKlE6g9KoVaYhujL0lYPvgBUa+PqIb7o5Z0tglk8ywolQG+KxUGJYAQSOdtscs1k2pim1w0SfIzI94j5YYezfE3o5DMjuyUeBq0gjo2qT+8ALQLdcLuXZdZJJKgiEEyQZkCb2tjTUQ4rY4VWMySTa19+g32xPz+YalTSmtSVYKxA1gSLiQyrPluLWwxds+G5ZaGVq5emACxRik6X2N3Ng0WjybpiR2Ro5avVFGsoDK8htIPhWw8X4TMzceEdRK1WrorRTqxMVqw/8AcAEKGiQdiREWMiRInHDMZhywJLSAFEkyANh12/PFhfapRo0MwKWXko1NGZAsB4kl5AgjwLNoOmeuCPZ7s7SzGSqZtqKNCtCSBYEDTAA8RAaDNiTg1UuBaFdJlXLnWgra66ZgTEzvv5elsRpw38MyuRXOsldylOmAFNrsDJLWN+Wkj8owRocHoZzNVtDk0dMIygIajgRYEWuN45x6OU65FGGrgQqIJtMA736YxUUfdkjz64NUOzdcKzMrInwhirEMdWnTIEKd/iiY+TXS7EUGUFarRHXn5xafTCc0uRrHJhLhPFFa7hrLpOm7CT4W0/eAMbXttvArjvan/opSZj8QhyVIB8QIMH0JJEbb4DZas4o1K1NiHZCu4Er97SdwVsbdThTjGGPEuRZN3uG+DZw06uqQCbX+G8R9Y5csF+1+cpPmUsrnu9Lbqo5hlPPc35+WFTL0mkMLQR4unTyxvxBvEb6jJLN+I8yPLG3bWrUZpUSaHc6lBQ+Ce8IqQHG1rSLkbTacdhwZWTX3ip4j4TeBbSwM3BuLgbHA7Ikar/CYkxMXH/j3x07lyxADRMbHYc/lOLGEspk8mGp97VqMD8YRI0kRI1He55Ly85wxdnHy9LMlwppU4imTDEg/EXIE7xE7ARhIFIrUCnqL+R54k1M2VFVASQSAOkAn+OInDUmjXHNRknXBejZJaoDrWo1oYMiuSFUgWNj4j6i2Bee7aZnL1Vo1KGkmIMyumYLKRIIG8TPpikxWYCAzfM4JcM1OSgq6fCSJiCbWuen5Y5f2teTsWeE3cl/fwWyPtAfVGlbX+M/wInyx1pfaB4GZgFIBI1EibiBcTtq36DFK1mcEMCw1C5BNyN/0xDY4cejitzLJminSj92XM32m09RUFSZi3eEe3g2xj/8AJlMWYrP/AOz/ALMU0DjqHXSZBLGIM7dcaftYfMx7zLkP2jowlYgED7+/+DGU+0OhAkoYJBmYn3QcsVJl6kUGvfvBH+FsMv2c8My+YrkZjTUidFNqmgFvD4mO5ESIE33EYmXS40tVsI5HJ0kOVbtNlBUIqUqAIsVZacg+YYCOWCfDu2OXS1OBTAsiGmADMkiGgTebYqbtjmKL56saQHdyApEwYAuPLkOoE4DvXYqE+6P5v1w+wq5ZSytF+Ve1eTqnU1MM1hNiTG1wcRqvEsg8q1I6WBDDx3BiQYPkMVb2LyH7TvmUwnwW5/iJNrDbz9MCe08/0qtO+r9Bif298SYpZfkWxmOC8HcOO4NMkmCnegjpEyD7g4R37NUxmO7LhaRaFq6TzHhJWRzsb9Tg5wnjVBaVGi7hXFGn8QtdAbHb54IP3JE94jdP6r/txpHFOKpTv6iUoXuiuc9wiolV6aqlTQY105ZD5hv5jDd2Ko6TQGxkz5Akn8jjHFeEJq15esqN95Q4Em0QJjfliOKz0QS5gkQWtzsSIttjPO5VR19NGF6kP/ZDiTd7UJJK1HZweUEwn+UDFkZStIxVXZyrUV4WmKqA/DKAj95NW21/bFl8NqAgQGU81YQR8rEeYx8Z+op93uLydOdKiovthoUqGf756IqCtSDQTA1L4D76Ql/MYq+plV72oFOpFJI3uOVx7YvD7eeDtUylLMoCTQYh/JHi59GC/wCI4oejWYMNLaT1FsfW/pWXudLB+yr7HlZORy4TxjLigyvTApsWD6CQwQlyESTAk6ZO8YAZPh7061NpBPxpuAxUnwGQCCQCNuY64Y+B8SXTUY0aLd2qlH7pB3jU5ktNyZO/PA7N1hXZkqELVaDTaVCqY1BSZkSIlrXnpGPQslrZDjxPi4zdGkaJpij3kGixXW0g6mZRssXE8h5xgNwXucrXWob97Olg/iCRsh2DKGp7/hIwAzFE5VtVWkwWoNKTZgijSxAa6sdwWEHpjv2dq5WuFp5s1C6t4TrIAWBYCN/fl64G0kNJylQw9plXO5pMwtdaLuTT+8XQLCXjyJgyJvHLEnh+V0TVrZyuHkvVU6WRyICPpkAAwBJm8XEYH9tuD5HKUh3Xe1KtT/mVGBCWkQQJkHyMibzhazfAs1TpLVDGolQAtoLG0iA6mGO45QJGEt90D9OzRG4rxDv3Dd2tOtcVGDBQ5jxEyQAZnbecPHYPtfSyOVhqmqzGFHiWT8IBiTqvJMb+WEKtw6u3jNEqpBYW0qBa97KNrnDfk+ylKvQFSnVRHA+GmGqa7KBqJ0qCL7LzJm2HKuGKN8oA8V45Z6OXrVRlqpulSJXxT4iLmTJgHYjc7CFqKkq1MMQYnUw+UcsEanCaQrij3m+pbxIdWIAaNgbeeJ0UZIq5Cp3ikq+guoBHIC0YdE2z6BGSp/8AST/Av8MCuMcF71YDaR0CqvtIGDxOMNVUbsB7jHKmbsq/iPYMMIWkqwfjDVGY/O2F7MfZxVYnSzKOcoxn+ffF2rnKR/5i/MfxxzzWcoqJdxHrH6jFqbJ0Ioyj2Bq6iNbKByK6f9RWb9Bgi32b5h2E1xpj8IDfTce+LVPGsqLghvQqT/qxoO0KGyU2HXVCfKd8Gti0Iqiv9lWbR1NCor8yXUppI2t4pwLq9j2oZkUcwyt4e8YLqFvHAJgROk7dRi71zdFrswnprE/TFddqMu6Z2tWcBabhUomVOoBU1RBkRDTP4sDyOmb9LhWTNGL8tASpkKb00oQF1EwQBsSo6dQ2FTjGRai+mLFjpbqB+tx88OTKO/Vh9xbwegLf6jiJxvhvf9ygaCCx2keIwf8AQPrhRdaV8rO/qcUckcmRL/0kgBmgHylIKBrSo4N+TBSCflHtgV/QX/Dh4+z/AIYE4hTTMAGmyVbn4TCgjf8ALzxaNXgfDqhhFTUPwnT+QxopJI8zPGXcals1S+yPnUZN/wAJxk0SBGiTPxAn5dPpj6D/APReVMEsZHVQfrAOOPF+yeTqLC1FDjqzMP8ADrBHth9xGWkoJpFOIjxT9DjGWVbHUQQdo5es/pi7KXY+gACjw450qatJ8gzFh88A+J8DqtUM03YDYmjJPqDt9cUpoWllaZnxMzcziZwOjRMmq6giIVtQ95DD88NXH+B1hl6h7jQoGosKTIYW5n2nCDVXSbGcaQkuaIafBZvD5cAhlZeUAgfUn5zhK7R5cvmap1Lcjd1HIbyRg32GzlVjULnUoVYm1xO3L19sS8r2PfNE1Eq0iSTKl4Ye2OrPKPaTSrcwxp9xoXOIZSpNJhqkUaYlBruARYqfL6446akKS1SVmJR7cp26Yeq/YivQQftKhA+6i02j0mpcemOL9m8xp10swrjmGpshH+Qj644dUTppiaKjg/HsIko23S6zyHzxrUMU6w1AyoJidy68oF8MwpZxLGi88mCMR+YxJ43wesclUes+lVhjqpsvSAGmJLWAgzIHnhNxKVgvhPa9qaqqKrMEUEuuoyBfSP1PlYYsrg/bCsqA1Sqsb93od6jD91RUBX1YAeuKh4Rl1qNAQ1QBYAlai+kfwYYP5Ph+XkgVXpn8NVCfqkn/ACjHmdT0vTzdSVf4v+/Y9LE884pqOpfKr/39kPPEO1uarBlZYpMpBQJuCIhiQZ+mKm7T8Mam6QgAqklSCIbba9txa3XY4d1pU1ic0pHRBUkDyDBR9RgT2ky71DTp0aHeukOrhXJdRPh3g6BpWB+Act+jBHFjqOFbeTDqYyfqnFx9lVfzT+r38ADM5pMuooga30FXMiBquQLXuZ9hiDw7PsiVRI0sBaBc6gRHTnjy8GrF3VqbU3VS2hlYMdyAARN+WIWZylSnGum6TtqUrPpIx2HHbDXFe1VTMGt3qqVqxA5qVACQfIAA++AdOoAGEAzF+Yjp64549h0Jtt2wlmeMVKqqlU64YGTzibH54cey3GTUQAGalNizLtqQ6gdPoSjf3MV8jQdp8uuCHDaz0ia9JoamV8PLS0gg3uJgR54BBHtXxOt3pptUuF0sEkCGOrSbyeXyGD32e5nu0bWaaq8tLPpaFgWBEQJJ3m5thMy6NmK8BQz1WMAnSNTTz8jj1Su6a0aQyjugOl/F+RHvgY0zfiWdJzFSojb1GIYQJGqVP0GHujx2nURHqEFyo1dQejEupYxFyNiL4rjLU5MmdII1EcsYzFXUxPyHQDYfLCcU+SozceD6nz1OqBamrdZY/kBhS4xxGuDbu1A/ck/5hiXkuGcV+/mKfyJxJrcAzNQ/ta4ZeigpPyOOcuxTSvXzDAFmj+wi/lGJb9mlP3gT+8GP6z9cF8x2dKf1dIT1NRz+ZwNbLVKTQ9O/VQD+YOARwHZ6BAYKeq0v1YnEDN9larXFdW/uH9FwZPD61f8AqiY5ksAPmFAxvw7sMFJNZ1Lfugn6jf54djoCHgq0U8VUT0aQPyGOeVzqpmqCmmH8FQr3TaoJKeI8hsRvzw4ns4qiFUEHrb5gz+eImQyaZfMVFIRR3VN7CAJaqLyfLETezNMK9aFnNcRp0KtRAEILkkELYkCRBG0g4If07L6QTl1JIgMqBCBf4SadtzscGs7wN6jMwVfESYLGL9REYDVux7CXIUxfSl58gGIE+4w4pUE5yt7+Th2a4JrpmoVdysxJhgQRJp2HxC0+2DT1FACihXB6+L8yRjXgOfC5KvqD0zSWqpDjQ6iCyyCbHSRF+mFTg3bKmn/MWY3qd+T7kAjEwT3RfUT1NSb3Yw16SQYeqWG6sf8A+wMc+Gs+rV3QPSaaz7EVDiRkOL5PNGKj03beAU+kgNhjWjTUAU9SjlCkD6ADFmAN0d5sayN0Vu7Hz0E/niDVody3grOXO4Y06s+pIBwdzOSBEkMx8mP/AHYiU6JXdGAPNiDH1nBqHRG71nDJVmGBVgndkEEQQykTcYoztBkBQzNWirFlRyoLWMcp8+uLy/4SmvU5Qz1kH2JxUf2hcK7nO1QoGlgtQQZ+IXvz8QbGuJ70ZzQb7HIO5ZT8SEqbbT/HfDplxlkHeJTyeo/CQgVj7uhP1xVPZHME5tRHxWi/Iev54tSpwIhjU0UxP7s29DYe2OnqJ3jivqY441NsIZfO1yQYgfhptTv9FwUPFqir/V1JPI6f/qcDKXC1KSihW6oHQf5Wg4zR4dmI/rXPo0/njiOgxmM7mCCUL/2WBP006vrhC+0Xidd1p0CAW+NgAQSLhRBuROox5DFgpk84htUZh/YB/M4pjtTxs1s5WdvGofSpFiAthp9YmCOeHFW9h2vIKyNJWa5ZCDuBIB87gj64bcnn66iP6VKj7rh394amwHzwO4bxelJdjTJiCtemzT5q6yQfIkDBehxDLOCTTor0hcwT7ftAPniZz8Sg3+S1hVWpx+7T/g7U+IVap0NXcobFaY0BztoiFsbSYM4l0qxpZykTmKemdLU/GwjYCSNJ0za5Fsc8lxemLK1aAP6sBaSN/bKOSR9T1GA+ar5l8wjikq0kZQYpIAASAZEa2EczJ88Zx1v4Y6V/P4NF2I/E238tkvq5K39i3Rwui3iiG6rY/NTI9scqvDaLArqpk9HIYj2cH64mZXJj/l92xHQhT8gAY9RiQ1NmBmPOG1D3BH64rcyEzjnZGRAAb+zSosfew+l8KnE+xwB5J60qqj5BdJxaZ4Qm6nSeUDSPkuI1fI5lfgK+oMz7Op/PFKTFSKdz3CQBp/YhgZ1Ke6b5PA+WJRytBh4ssQzAAt3xdWI+8YJPsGxZwzNdfDmKAqDqFX6+KPyxGzfB8pWH/wAWmpPNQ1/Xu2H5nF6ydIk5XsllmSSzI4uO71A+Vqj7+mBdfsmNJAzJjVqPeUqi7TeQHBN9zGHodkaSmZZR0LPHydI/zYM8E4eaYmmi/wCILPuhODWw0orCr2YyukinxBVJ+6+lZ2sSWW0jpgHW7M5hTH7JvNa1Eg/58X1TrtJFWkyjzNOop/8At8xgBxzJ5TvB+xy06b+BV5ncad8CyMWgf6PhnxlibmY+gFgMSe7JE7DqbfLr7Y+e6fabMp/VVnXzJ1H62HtiTS7bZ4GTX1H94Tg7TRPcTL4OnqW9LDETimbqJSdqFIPUCnQkqNTcpZjYTvfFRUftEzo37tv59cTqH2n1h8dAHzBP6jC0SK1xBvEeH8erMzVFzEmSdFSmg9BocSPK+EuvnaoeHqVNamPEzagfcyDi1qH2pp9+g49IP64k1O3uQrgpWpyp3FSnqB+hxSb9iaT8lXcN7V5yg2qnmavozGop9VaR77+eJmc7SVM9XpVq9OmTQj4AV1DUGgyTeZ/xYOdqK3Bkp95l6biuT4BRepT0n8R3CgeQk29RI7PAZsE1szoB0ltZGp2GqDpmYAPON8V8xb8BWl9pOVqrFRmot+FlqH6pIxJ4f2oy0/8Ay6Onlq1qf88YaO6y1VAlQpVUADxQ2qALkGwMziL/AOjclJaipoMfvUXZPms6D6FSMZek03ETjWdy9Ti+XrI9OogSlqZWVgGD1NzNrad+WJna/s5l8wVqU6mTyy7vVLgFieRAIQ8rzOOvaD7PM3UqGsmYp1WsPEO6JAED4QUmB5AmdsacC7K1+8jMZKiyH4jUWk7TG6uCbTeL74u0TQk8X7OJP/tKr5vyp0KjDz8QBU+2JfB+z/F6a6qCVaQ/CKqpP90uAfcYtGl2Lym/9GVD1Qsn+lhj1TsTlyCuquqkEEDMVoIO4ILkR5Rg7iHoK2qdquLZUzVaY/GtNx6E09vc4ZuDfavQYAZqm1M/iXxKfb4h8j64lVvskyJ+F66ejIfzQ4rrimYqcPrmlQrVWpifBXpFVJm/7N5DcvFAw/TIN0XBle1XDqlxmqInk7qv+ojFXfbCEOapNTakyNSEFGVjufig2F7HnfphR4hm2r1DUYICeVNFpqPQKAMRAovJ9PPphxhTsTlYy9iac8QooiRq0wGM7IGJPk0ExeAY88X3laUfcA9Dj597C1kTOU6r1kp6DINQMVNiIJBEW88fQWQz1Oqoak6VF/EjKw+hOFlbdIIJEiOcYwant7R+mMlxtjxxiaGSuoFTcERudjipu0P2fZVM5l6NNqlNKoYtcNpjbTI5+c7YtgvhJ7dOUzWVqeTD5ET/AKhgcmlsXijGUkmaVfsryKqVmqSbh9cEeURp3nkN8YznYHLJlqoRWZ9BKszNIK3tpgCYjbnh0pOWAnoMaZ2mTSqAc0aI6wcKE5NbjyQip7Ct2L7L5TuFzCBneAQKjSFOzW5895jB2rwkNYMVH7oH6g/TAb7OM1GXKeZw0d7a4j1/3xEJN8l54xi1QLPB6gtKVF/eUA/QETiZlcqyWIWOkN+YYEe2OpqHaducGMYSta5n2/hjQxJqIkWYp63Hz3H1xrWyrKJIlfxC4+YxHNW3P5HGaFZlMrI6z+vXBaAyV6XxrUUGzID6gEfUYmU81Tb+tTT5ofzBt8sb5zLBRqF1OzCSPygHyw69hWDaekWAjyH+2MmkJnSAesQcdYFoIPUDl9f445GtE74kZsV6nAHjv9YP7I/NsHEcb3/n3wD44fGP7P6tikBTvdY2KY3GOkxjpOMjFDjBQxbEgXxuyeeGBwU2jTPqSceRDNgL+WOmM6xGEBzenG4H0xpA6Y856Y17hvTBQ0zZKxU+ElfQkYM8N7W5mlEVCwHJr/XfAVaJnBvhHZutXMtIXz54lpeTSLY68A+0DvCEemZ8hI+mHbK5oOARb1wvdneyqUQLe+GhKYW2MXXg2RmDjxnpjM40ZgP44kZktjSpl1qeFlVgeRAI+RxstXVtf0/2xIYaBb4ouf4YYgLxDstkXGlsrRPUimo+RABwo8Z+yfKVFmg9Sg3nNRfcMdXvq+eLDWrOPOehw1JoVJnz5xj7OM/QkikKyjnROr/KQH+QOFapTqUX8SvTcdQUYfkRj6l7sdMa16CVFh0DDowDD5GcWsnuToPnXIdtM/SACZqpHRiH/wBYOGDIfaxnFgVUpVR6FD8xb6YsTifYfIZhYNBEP4qIFMj5CD/eBwsN9ldSi/e5XMU2PJMxSVhHOTDA+ukYeqL5FpaJvCvtXyrwKyVKJ6wKig+o8X+XEb7Ws3TqZTL16NVSRWhGRrwyktEGbFVnpbAntb2Y4jUVYyGVUoZL5QKGe3ME6iPKMV3Vy7q+lwVYG6sCp9wb4FFcoLZfX2Zl2yCO7s7u9QlmJYmGKiSTOygYYM1XVEdmICqpYk8gAScV72HqcSTLL3NOjVoqWHduxpvJ8R0NBWJb73OfLCP2vfiOt/6YKyhiDBP7PyjT4MTotlathn+xpKtSpUL1KncU1+EGQXb4fWAGMemLioU6UHUx28Ph/WcVl9i6xQrAg3dWkjyYR57fXFhGmP55YmW0hq2tzzE7Aj6n5f8AnHJtXkfW38cealNiAR53xrVBjEFGVZuYEeTH/txrUqHaRbz/ANsaaWNpOMEEbzPnBwAdFqOOQ+f+2JWWzzIbbHcG4PqMQ+8tJNhzxnAmFDBl8tRrLKKFfmsxPWMDM4gViCII/npiNTJBB5jbl8iMHKNVcwhEKKoG5AMj1IxfJPAEJGAPHG/aD+z+pwfr5cqTMg88L3G/jH9kfmcSuSirGOMrjKocbnHWcRwdT19sahcd4xh4wAR3UnnjXTGOwx7TOEMytQR549TcMYxowxosjACH/sx2apmHbxH6DFg5PJIg2xSHD+P16J8L26HDhwbt8LCp4T57YxnFm8ZIsr0xkpzwEynaSi4BDA+mJ6cUpnZhiKNCWel8e5/pjC155iPXEzLAKNb8/hHXBQGtMaBq+8dh0HM4jlhz39cbVKuokzjlUvgYj2n5Y1nGTT88aMMIZ5m5TjDSOXztjLC2OaLAgfxwDMuOePAemM1ARyj6nHNuuADrrgYiZ3KUqw01qVOoOjorfmMdQ/LHM1JmDJ8r4AM5dUpoKdJVRQIAUQB7Y7KUIgjlzvPrjgEPO/mMZi3PCA3o5VEEIiqDyUAfljZh88aA4zRc++GBzqKce5Y7Gp1xhtPT64QEc0ydsYZSOWOoXyPzjG9RTyn+ffAMitmFUwxAkEibWET+YxlXBAKmxAI98b1KWr4h8xjfxbGCMAGjEnfHXKuVII3BxHarjotWRgEMfEaZqUg69JI6j/bCHx9B3gv90fmcWHw2nFBVI3mx9cV7x9gagsPh8+rY0lySipg2PGpj2PY6DjMEnHsex7AB6ManHsewhmHOOZbGMewwNGOOdQzjGPYBmaddl2Yj3wU4Z2iqUzdiR549j2E0ioyaLI7K9o6TjXUbwjlzY9BhsXiaVLyPITEDpjGPYwmqN07RKQjlGMaY5/LHsexBRoz40arjOPYBmnf+X5Y3WwnHsewCObHGoOPY9gA2+uMPSurEXH64xj2ACSvnjWpUxnHsAzmQOuNDHLGMewgNwDjUpj2PYAMFDjOkzbGMewwM6ZxjUcex7ABzgY60MtJHTnblzx7HsADRw8xTB9YHly/nzxW/aJ/223L9WxjHsXLwSuT/2Q==" alt="Insuknauur match in Mizoram" />
+            <div class="image-overlay">
+                <h3>The Spirit of Insuknauur</h3>
+                <p>A traditional Mizo sport that combines skill, strategy, and teamwork.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Insuknawr</h2>
+            <p>Insuknauur is a traditional Mizo sport, often played during festivals and community gatherings. The game involves two teams who compete to score points by using a wooden ball, typically played outdoors. It combines elements of strategy and physical prowess.</p>
+            <p>This traditional game is an important part of the Mizo community's cultural heritage, and its popularity continues to thrive within Mizoram, especially during major cultural events and festivals.</p>
+        </section>
+        
+        <section>
+            <h2>History of Insuknawr</h2>
+            <p>Insuknauur has been a part of the Mizo culture for centuries. Played originally by the Mizo people, it served as both entertainment and a way to foster teamwork, strategic thinking, and physical endurance.</p>
+            <p>Though modern sports have entered the scene, Insuknauur still holds cultural significance and continues to be played in the region, especially during cultural festivals and traditional events.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Insuknawr is a sport deeply embedded in the traditions of Mizoram. While not as widely known outside the region, it is a core part of community gatherings and cultural celebrations, where people of all ages come together to participate.</p>
+            <p>Younger generations of Mizoram continue to take part in this game, ensuring its continuation for the future while also passing down the cultural values it embodies.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Insuknawr is governed by simple but effective rules. The game is played with two teams, and the objective is to score by passing a wooden ball through a set goalpost. The game requires both physical effort and tactical strategies.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Composition:</strong> The teams typically consist of a set number of players, and the match is played outdoors with natural boundaries.</li>
+                <li><strong>Objective:</strong> The goal of the game is to use teamwork and strategy to maneuver the ball into the opposing team’s goal while following the specific rules of the game.</li>
+                <li><strong>Gameplay:</strong> Players must work together to control the ball and prevent the opposing team from scoring while making strategic passes and maneuvers.</li>
+            </ul>
+            
+            <p>The game is played according to traditional rules that have been passed down through generations, preserving its authentic nature and ensuring consistency during local tournaments.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Playing Insuknawr offers a wide range of physical, mental, and social benefits:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>The sport helps in building strength, endurance, and coordination, providing a comprehensive workout for all participants.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Teamwork & Strategy</h3>
+                    <p>Insuknawr requires close cooperation between players, fostering teamwork, communication, and strategic thinking.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Connection</h3>
+                    <p>Playing Insuknauur is a way for the people of Mizoram to stay connected to their cultural roots, passing down traditions to future generations.</p>
+                </div>
+            </div>
+            
+            <p>The benefits extend beyond physical fitness, promoting a sense of community, unity, and cultural pride among the participants.</p>
+        </section>
+        
+        <footer>
+            <p>Insuknawr is more than just a game; it is a vibrant part of Mizoram's cultural heritage, bringing people together and promoting unity and fitness.</p>
+        </footer>
+    </div>
+</body>
+</html>

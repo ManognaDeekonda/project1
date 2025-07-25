@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmukhrah in Meghalaya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rahmukhrah in Meghalaya</h1>
+            <p>The Traditional Sport of Meghalaya: A Game of Strength and Strategy</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Rahmukhrah match in Meghalaya" />
+            <div class="image-overlay">
+                <h3>The Spirit of Rahmukhrah</h3>
+                <p>A traditional game played in Meghalaya, showcasing strength, agility, and teamwork.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Rahmukhrah</h2>
+            <p>Rahmukhrah is a traditional sport from the state of Meghalaya, often played during festivals and important cultural events. It is a unique game that involves two teams of players, where the objective is to outmaneuver and outscore the opposing team using a ball.</p>
+            <p>This traditional game is deeply connected with the indigenous culture and community life of Meghalaya, and continues to be a significant part of local festivals and celebrations.</p>
+        </section>
+        
+        <section>
+            <h2>History of Rahmukhrah</h2>
+            <p>Rahmukhrah has its roots in the local traditions of Meghalaya, where it was traditionally played by the Khasi, Jaintia, and Garo tribes. The game was not only a form of entertainment but also a way to build strength, agility, and team coordination among the community members.</p>
+            <p>Though modern sports have gained popularity, Rahmukhrah remains a cherished tradition, played during cultural festivals and events, serving as a reminder of Meghalaya’s rich heritage.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>While Rahmukhrah is not as widely known outside of Meghalaya, it is an essential part of the state's cultural identity. The game is played in various parts of Meghalaya during significant cultural events and is a key feature of community gatherings.</p>
+            <p>The youth of Meghalaya also play Rahmukhrah as part of their community rituals, helping preserve the game’s rich legacy and ensuring its continuity for future generations.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Rahmukhrah is a game with simple but effective rules. The game is played with two teams, each attempting to score goals using a ball while adhering to specific tactics and strategies.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Composition:</strong> Each team consists of a set number of players (usually 7 or 9), and they work together to control the ball and score goals.</li>
+                <li><strong>Gameplay:</strong> The ball is passed between players, and each team tries to outmaneuver the opposing team by using physical skill and strategic positioning.</li>
+                <li><strong>Objective:</strong> The goal is to score by getting the ball into the opponent's goal, often made of a simple structure that requires teamwork and strength to score.</li>
+            </ul>
+            
+            <p>Rahmukhrah has been modernized for competitive play, but traditional village and cultural versions of the game continue to be played in Meghalaya, preserving its roots.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Participating in Rahmukhrah offers several physical, mental, and social benefits:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Rahmukhrah is a physically demanding sport that builds strength, endurance, and coordination among players.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Strategic Thinking</h3>
+                    <p>The game requires players to think critically, plan strategies, and work in teams to outsmart the opposing side.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Identity</h3>
+                    <p>Playing Rahmukhrah connects the youth with their heritage and helps preserve a unique part of Meghalaya's cultural tradition.</p>
+                </div>
+            </div>
+            
+            <p>The benefits of Rahmukhrah extend beyond fitness; it fosters a sense of community and cultural pride among the people of Meghalaya.</p>
+        </section>
+        
+        <footer>
+            <p>Rahmukhrah in Meghalaya is more than just a sport; it is a vital part of the state's cultural fabric and identity, promoting unity and well-being within the community.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhopkel: Traditional Game of Assam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f7f3e9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.8rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #ff7e5f;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff7e5f;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+            
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            padding-left: 30px;
+            
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            position: relative;
+            padding: 15px 15px 15px 70px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            counter-increment: rule-counter;
+        }
+        
+        .rules-list li::before {
+            content: counter(rule-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #feb47b;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #feb47b;
+            color: white;
+            border-left: 4px solid #ff7e5f;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dhopkel</h1>
+            <p>An Ancient Traditional Game from Assam, India</p>
+        </header>
+        
+        <section>
+            <h2>History of Dhopkel</h2>
+            <p>Dhopkel is an ancient game that originated in Assam, with its roots deeply embedded in traditional Indian games. For centuries, this cultural gem has been preserved and passed down through generations in rural areas of Assam.</p>
+            
+            <div class="featured-image-container">
+                <img class="featured-image" src="data:image/jpeg;base64,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" alt="Children playing Dhopkel in a village festival setting in Assam" />
+                <div class="image-overlay">
+                    <h3>The Spirit of Dhopkel</h3>
+                    <p>A traditional game that brings together communities during festivals and celebrations in Assam, preserving cultural heritage through play.</p>
+                </div>
+            </div>
+            
+            <p>Often associated with festivals and celebrations, Dhopkel represents more than just recreation—it embodies cultural heritage and community spirit that has stood the test of time.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Dhopkel stands as one of the most popular traditional games in Assam, particularly thriving in rural communities where cultural traditions remain strong. The game plays a significant role during festivals and special occasions throughout the year.</p>
+            <p>More than just entertainment, Dhopkel serves as an important vehicle for social interaction and community bonding. It brings together people of different ages, strengthening community ties and preserving cultural identity in an increasingly modernized world.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules of Dhopkel may vary depending on the region and the players. However, the game typically follows these basic principles:</p>
+            
+            <ul class="rules-list">
+                <li><strong>Throwing:</strong> Players take turns throwing a small object, such as a stone or a seed, into the air. The throwing technique is crucial and developed over years of practice.</li>
+                <li><strong>Catching:</strong> The objective is to catch the object or perform specific actions before it hits the ground. These actions might include clapping, touching the ground, or other choreographed movements.</li>
+            </ul>
+            
+            <p>Regional variations add richness to the game, with some areas incorporating singing, rhythmic movements, or additional challenges that test players' skills and coordination.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Playing Dhopkel offers numerous advantages that extend beyond simple entertainment:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Dhopkel improves hand-eye coordination, fine motor skills, and overall dexterity. Regular play enhances reflexes and physical agility in participants of all ages.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Focus</h3>
+                    <p>The game requires concentration and strategy, which can help improve mental focus and discipline. Players develop decision-making skills and cognitive abilities.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Social Benefits</h3>
+                    <p>Dhopkel promotes social interaction, teamwork, and community bonding. It creates opportunities for intergenerational play and cultural storytelling.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Exploring and preserving traditional games like Dhopkel helps maintain cultural heritage and provides sustainable entertainment that connects generations.</p>
+        </footer>
+    </div>
+</body>
+</html>

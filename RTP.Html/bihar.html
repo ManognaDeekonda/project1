@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletics in Bihar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Athletics in Bihar</h1>
+            <p>Strength, Endurance, and Sporting Excellence</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="atheletics2.jpg" />
+            <div class="image-overlay">
+                <h3>The Spirit of Athletics</h3>
+                <p>Young athletes from Bihar training for various track and field events, embodying determination and excellence.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Athletics in Bihar</h2>
+            <p>Athletics is not specifically designated as the state sport of Bihar. However, it has gained significant popularity across the state, with many talented athletes emerging from various regions within Bihar.</p>
+            <p>The state has been working on developing better infrastructure for athletics training, with several stadiums and sports complexes being built or renovated to accommodate athletics events and training facilities.</p>
+        </section>
+        
+        <section>
+            <h2>History of Athletics</h2>
+            <p>Athletics has a rich history in India, dating back to connections with the ancient Olympic Games. The modern version of athletics has evolved significantly over time, with various events and competitions being organized at state, national, and international levels.</p>
+            <p>In Bihar, athletics competitions have been organized since the post-independence era, providing platforms for local talent to showcase their abilities and compete at higher levels.</p>
+            <p>Over the decades, several athletes from Bihar have represented the state and the country in various national and international competitions, bringing recognition to the region's sporting talent.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Athletics is a popular sport in India, including Bihar, with a large following and participation in various events like track and field, road running, and cross-country running. School and college-level competitions across Bihar have helped nurture young talent and increased interest in the sport.</p>
+            <p>Annual athletics meets organized at district and state levels attract numerous participants and spectators, indicating the growing popularity of the sport in the region. Government initiatives and sports scholarships have further encouraged youth participation in athletics.</p>
+            <p>Rural areas of Bihar have shown particular interest in athletics, as these sports require minimal equipment for basic practice, making them accessible to athletes from various socioeconomic backgrounds.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Athletics events in Bihar, as in the rest of India, are governed by the International Association of Athletics Federations (IAAF) and the Athletics Federation of India (AFI). The rules and regulations vary depending on the specific event.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Track Events:</strong> These include sprints, middle and long-distance races, hurdles, and relays. Each has specific regulations regarding starting positions, lane assignments, baton exchanges (for relays), and finish line protocols.</li>
+                <li><strong>Field Events:</strong> These encompass jumps (high jump, long jump, triple jump, pole vault) and throws (shot put, discus, javelin, hammer). Each discipline has regulations about equipment specifications, attempt sequences, and measurement procedures.</li>
+                <li><strong>Combined Events:</strong> Events like decathlon and heptathlon follow specific point-scoring systems and order of events as regulated by international standards.</li>
+            </ul>
+            
+            <p>Local competitions in Bihar follow these standardized rules, ensuring athletes are trained according to international norms and can transition smoothly to national and international competitions.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Participation in athletics offers numerous advantages for individuals and communities:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Athletics improves cardiovascular health, muscular strength, and endurance. Regular training enhances overall physical fitness and promotes a healthy lifestyle.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Toughness</h3>
+                    <p>The sport requires mental discipline, focus, and resilience. Athletes develop strong determination and the ability to perform under pressure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Social Benefits</h3>
+                    <p>Athletics promotes teamwork, camaraderie, and sportsmanship. It creates opportunities for social interaction and develops leadership qualities.</p>
+                </div>
+            </div>
+            
+            <p>These benefits extend beyond the individual athletes to their communities, creating positive role models and inspiring future generations to pursue sports excellence.</p>
+        </section>
+        
+        <footer>
+            <p>Promoting athletics in Bihar contributes to the overall development of sports culture and physical fitness in the state.</p>
+        </footer>
+    </div>
+</body>
+</html>

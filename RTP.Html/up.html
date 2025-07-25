@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Lifting in Uttar Pradesh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 180px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weight Lifting in Uttar Pradesh</h1>
+            <p>Strength, Power, and Precision</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="weigthlift.jpg" alt="Weight Lifting in Uttar Pradesh" />
+            <div class="image-overlay">
+                <h3>Uttar Pradesh's Strength</h3>
+                <p>Weightlifting is a popular sport in Uttar Pradesh, with numerous athletes excelling in national and international competitions.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Weight Lifting in Uttar Pradesh</h2>
+            <p>Weight lifting is a prominent sport in Uttar Pradesh, known for its competitive athletes who have represented the state and the nation in various international championships. The state has been an important hub for weightlifting talent, with many aspiring athletes training at renowned sports academies and gyms.</p>
+            <p>The state government has invested in building better facilities to support weight lifting programs and to develop athletes who can compete at national and international levels.</p>
+        </section>
+        
+        <section>
+            <h2>History of Weight Lifting</h2>
+            <p>Weight lifting as a sport has a long history, with its roots going back to ancient Greece. In modern times, the sport evolved and was introduced into the Olympic Games in 1896. Since then, it has grown in popularity across the world, including India.</p>
+            <p>In Uttar Pradesh, weightlifting has gained momentum in recent decades, with the state producing many notable weightlifters who have participated in national competitions and brought recognition to the state.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Weight Lifting</h2>
+            <p>Weightlifting is a widely followed sport in Uttar Pradesh, with numerous gyms, training centers, and clubs offering facilities for aspiring weightlifters. The state has produced several athletes who have excelled in national and international competitions.</p>
+            <p>Annual competitions and events such as the Uttar Pradesh State Weightlifting Championship encourage young athletes to take part and hone their skills in the sport.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules for weightlifting are standardized globally and are governed by the International Weightlifting Federation (IWF). The basic categories include the snatch and the clean and jerk, with each having its own set of technical requirements and competition protocols.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Snatch:</strong> A single movement in which the lifter lifts the barbell from the ground to overhead in one continuous motion.</li>
+                <li><strong>Clean and Jerk:</strong> A two-part lift where the lifter first lifts the barbell to the shoulders (clean), then lifts it overhead (jerk).</li>
+                <li><strong>Weight Categories:</strong> Competitors are divided into different weight categories to ensure fairness in the competition.</li>
+            </ul>
+            
+            <p>Local competitions in Uttar Pradesh follow these rules, ensuring athletes compete on an equal footing with their peers from other regions.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Weight Lifting</h2>
+            <p>Weightlifting offers several physical and mental benefits:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Strength</h3>
+                    <p>Weightlifting helps develop muscular strength, power, and endurance, making it an excellent full-body workout.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Improved Confidence</h3>
+                    <p>The discipline required for weightlifting fosters mental toughness and boosts confidence, helping athletes perform well under pressure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Health and Fitness</h3>
+                    <p>Weightlifting improves bone density, joint health, and cardiovascular fitness, contributing to overall well-being.</p>
+                </div>
+            </div>
+            
+            <p>These benefits make weightlifting an essential sport for physical fitness and athletic development in Uttar Pradesh.</p>
+        </section>
+        
+        <footer>
+            <p>Weightlifting in Uttar Pradesh has grown tremendously, with the state's commitment to improving infrastructure and training leading to remarkable achievements in the sport.</p>
+        </footer>
+    </div>
+</body>
+</html>

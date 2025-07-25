@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilli Danda in Sikkim</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gilli Danda in Sikkim</h1>
+            <p>Tradition, Skill, and Heritage</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Gilli Danda in Sikkim" />
+            <div class="image-overlay">
+                <h3>The Traditional Game of Gilli Danda</h3>
+                <p>Gilli Danda, a traditional rural sport, is enjoyed by people of all ages in Sikkim, maintaining its cultural significance.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Gilli Danda in Sikkim</h2>
+            <p>Gilli Danda is a traditional and widely played rural sport in Sikkim, known for its simple yet challenging gameplay. The game is similar to cricket but uses a smaller wooden stick (Gilli) and a larger stick (Danda) to hit the Gilli and make it fly across the field.</p>
+            <p>In Sikkim, this game is often played during festivals and celebrations, bringing together families and communities. It remains an integral part of the state's cultural heritage.</p>
+        </section>
+        
+        <section>
+            <h2>History of Gilli Danda</h2>
+            <p>Gilli Danda is an ancient game, believed to have been played for centuries across India, including in Sikkim. It is traditionally considered a children's game, but adults also partake in it as a recreational activity.</p>
+            <p>While it does not have formalized rules like modern sports, Gilli Danda has always been a source of entertainment and social interaction, especially in rural parts of Sikkim.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Gilli Danda</h2>
+            <p>Gilli Danda remains a beloved sport in Sikkim, particularly in the villages, where it continues to be a favorite pastime. The game is easy to organize with minimal equipment—just a Gilli and Danda—making it accessible to everyone.</p>
+            <p>The sport has grown in popularity, with various local tournaments being organized to celebrate the game, and it continues to play a vital role in preserving the state's traditional sports culture.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Gilli Danda has informal rules that vary depending on where it is played. The general idea is for a player to strike the Gilli with the Danda, sending it flying. The player then has to hit the Gilli a specific number of times or perform a task before the opponent tries to do the same.</p>
+            
+            <ul class="rules-list">
+                <li><strong>The Gilli:</strong> The Gilli is a small wooden stick that is hit with the larger Danda. The Gilli must be hit in the air, and the player tries to make it land at a far distance.</li>
+                <li><strong>The Danda:</strong> The Danda is a long wooden stick used to strike the Gilli. It is also used to control the movement of the Gilli in various ways.</li>
+                <li><strong>Scoring:</strong> Players score by hitting the Gilli into a designated area or performing other tasks agreed upon by players before the start of the game.</li>
+            </ul>
+            
+            <p>In Sikkim, these rules are flexible, with local variations ensuring that the game remains fun and engaging for all players.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Playing Gilli Danda</h2>
+            <p>Gilli Danda offers several benefits to individuals and communities in Sikkim:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Gilli Danda helps improve coordination, strength, and agility. It is an excellent form of physical activity that encourages players to stay active and healthy.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Community Engagement</h3>
+                    <p>The game fosters social interaction and teamwork, bringing together people of all ages in a spirit of friendly competition.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Preservation</h3>
+                    <p>By continuing to play Gilli Danda, Sikkim's residents help preserve the cultural heritage and traditional sports that have been passed down through generations.</p>
+                </div>
+            </div>
+            
+            <p>The game promotes not only physical fitness but also social harmony, community involvement, and the preservation of local traditions.</p>
+        </section>
+        
+        <footer>
+            <p>Gilli Danda remains a beloved and meaningful sport in Sikkim, providing enjoyment and cultural connection across generations.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polo in Manipur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Polo in Manipur</h1>
+            <p>The Pride of Manipur: A Sport of Nobility and Tradition</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Polo match in Manipur" />
+            <div class="image-overlay">
+                <h3>The Game of Kings</h3>
+                <p>Manipur's rich tradition of polo, showcasing skill, bravery, and strategy.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Polo</h2>
+            <p>Polo is the official state sport of Manipur, and it holds a special place in the culture and heritage of the region. Known as "Sagol Kangjei" in Manipuri, it has been played for centuries, dating back to the 15th century.</p>
+            <p>Manipur is considered the birthplace of modern polo, with the sport evolving from a traditional game played by the Manipuri kings to a globally recognized sport. It involves skillful horsemanship and strategy, making it an exciting and prestigious game.</p>
+        </section>
+        
+        <section>
+            <h2>History of Polo</h2>
+            <p>The history of polo in Manipur dates back over 500 years. Originally, it was played as a royal sport, enjoyed by the kings and the elite class. Over time, the sport spread to other regions and was modernized, but its roots remain deeply embedded in Manipur.</p>
+            <p>It was in the early 19th century that polo became an organized sport in Manipur. The Manipuri kings used it as a means of physical training for their soldiers, while also emphasizing the importance of teamwork and strategy.</p>
+            <p>Today, Manipur is globally recognized for its contribution to the sport, with its polo clubs and teams regularly competing in international tournaments.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Polo is a highly popular sport in Manipur, with a deep connection to the local culture and traditions. It is a prominent feature in many cultural and religious festivals, with grand polo tournaments held annually.</p>
+            <p>The state's enthusiasm for polo is reflected in the numerous polo grounds, training centers, and clubs across Manipur. The sport is especially popular among the youth, who are eager to participate in the rich legacy of polo.</p>
+            <p>Government support, along with a growing interest in the international polo scene, has ensured that polo remains a key part of Manipur's cultural and sporting identity.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Polo is a team sport played between two teams of four players each, who ride on horseback. The objective is to score goals by hitting a small ball into the opposing team's goal using a mallet.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Structure:</strong> Each team consists of four players: a back, a mid-player, and two forwards. The players use mallets to hit the ball, aiming to score goals.</li>
+                <li><strong>Duration:</strong> Polo matches are played in periods called chukkers. Typically, a polo match lasts for 4-6 chukkers, each lasting 7 minutes.</li>
+                <li><strong>Fouls:</strong> Players must follow certain conduct and safety guidelines. Violations include dangerous riding or hitting an opponent’s mallet, resulting in penalties.</li>
+            </ul>
+            
+            <p>The rules are similar to those used in international polo competitions, ensuring that the players from Manipur are well-prepared for global tournaments.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Participating in polo offers numerous advantages:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Polo enhances cardiovascular health, coordination, and muscle strength. It requires skillful horsemanship, making it a physically demanding sport.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Strategy</h3>
+                    <p>The game requires strategic thinking, teamwork, and quick decision-making, sharpening mental acuity and focus.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Legacy</h3>
+                    <p>Preserving and promoting polo connects the youth of Manipur with their rich cultural heritage, fostering pride and identity.</p>
+                </div>
+            </div>
+            
+            <p>These benefits have helped make polo not only a source of physical fitness but also a cultural symbol for the people of Manipur.</p>
+        </section>
+        
+        <footer>
+            <p>Promoting polo in Manipur helps preserve its cultural roots and fosters a sense of community, while also offering physical and mental fitness opportunities.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyokum Yullo & Traditional Archery in Arunachal Pradesh</title>
+    <style>
+        /* New CSS with a different color scheme and layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f4e9;
+            color: #444;
+            line-height: 1.7;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background-image: linear-gradient(135deg, #8a4120, #cc7a52);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E"); */
+            z-index: 0;
+        }
+        
+        h1 {
+            font-size: 3.7rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 2.4rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+            color: #f0e6d7;
+        }
+        
+        .content-wrapper {
+            padding: 3rem 2rem;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(247, 229, 229, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .image-container {
+            height: 650px;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .info-card:hover .image-container img {
+            transform: scale(1.05);
+        }
+        
+        h2 {
+            color: #c25421;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #cc7a52;
+            transition: width 0.3s ease;
+        }
+        
+        .info-card:hover h2::after {
+            width: 100px;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            color: #555;
+        }
+        
+        .benefits {
+            background-color: #f0e6d7;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border-radius: 10px;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #cc7a52;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-item h3 {
+            color: #8a4120;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .note {
+            background-color: #f8f1e7;
+            border-left: 5px solid #cc7a52;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: #8a4120;
+            border-top: 1px solid #e5d6c3;
+        }
+        
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-container {
+                height: 250px;
+            }
+            
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-wrapper {
+                padding: 2rem 1rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NYOKUM YULLO & TRADITIONAL ARCHERY</h1>
+            <p class="subtitle">Cultural Sport of Arunachal Pradesh, India</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="info-card">
+                <div class="image-container">
+                    <img src="data:image/jpeg;base64,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" alt="Nyokum Yullo festival celebration with traditional costumes" />
+                </div>
+                <h2>Nyokum Yullo Festival</h2>
+                <p>Nyokum Yullo is a traditional festival celebrated by the Nyishi people of Arunachal Pradesh, India. The term "Nyokum" is derived from two words - "Nyok" meaning land and "Kum" meaning gathering, signifying a gathering to worship the earth goddess.</p>
+                <p>This important cultural festival is typically celebrated in February to invoke the blessings of the deities for abundant harvest, prosperity, and protection from natural calamities. The festival features colorful traditional dances, music, rituals, and community feasts that showcase the rich cultural heritage of the Nyishi tribe.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="image-container">
+                    <img src="data:image/jpeg;base64,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" alt="Traditional archery practice in Arunachal Pradesh" />
+                </div>
+                <h2>Traditional Archery in Arunachal Pradesh</h2>
+                <p>Traditional archery has been an integral part of the culture in Arunachal Pradesh for centuries. The practice of archery was not only a means of hunting but also a form of entertainment and competition among the various tribes of the region.</p>
+                <p>Archery holds significant cultural importance and is often featured during festivals like Nyokum Yullo. The traditional bow (called differently among various tribes) is typically made from local bamboo and other indigenous materials, showcasing the craftsmanship and resourcefulness of the people.</p>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <h2>Popularity and Cultural Significance</h2>
+            <p>Traditional archery is popular in Arunachal Pradesh due to its deep cultural significance and the skills it requires. The practice is often associated with traditional festivals and celebrations throughout the year.</p>
+            <p>During events like Nyokum Yullo, archery competitions attract participants from different villages, creating a sense of friendly competition and community bonding. These events also serve as platforms for transferring traditional knowledge and skills to younger generations.</p>
+            <p>The combination of festivities and traditional sports like archery helps preserve the unique cultural identity of the indigenous tribes of Arunachal Pradesh while providing entertainment and strengthening community ties.</p>
+        </div>
+        
+        <div class="info-card">
+            <h2>Rules and Regulations</h2>
+            <p>The rules of traditional archery in Arunachal Pradesh may vary depending on the tribe and the specific competition. However, the basic objective is to hit the target using a bow and arrow from a designated distance.</p>
+            <p>Traditional competitions often involve shooting at bamboo targets or other naturally occurring markers. The scoring system can vary by tribe, but generally involves awarding points based on accuracy and proximity to the target.</p>
+            <p>In many cases, traditional archery is accompanied by rituals and ceremonies that add cultural and spiritual significance to the competition. These practices have been passed down through generations and continue to be an essential part of the cultural fabric of Arunachal Pradesh.</p>
+        </div>
+        
+        <div class="benefits">
+            <h2>Benefits of Traditional Archery</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <h3>Physical Fitness</h3>
+                    <p>Archery improves physical fitness, particularly in the arms, shoulders, and back. The repetitive drawing of the bow strengthens muscles while improving balance and coordination. Regular practice enhances stamina and overall physical well-being.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>Mental Focus</h3>
+                    <p>The practice of archery requires intense concentration and mental focus, which can help improve discipline and self-control. Archers develop patience, precision, and the ability to remain calm under pressure - skills that transfer to many aspects of life.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <h3>Cultural Significance</h3>
+                    <p>Traditional archery is an important part of the cultural heritage in Arunachal Pradesh, and its practice helps preserve traditional skills and customs. By continuing these practices, communities maintain their connection to their ancestors and cultural identity.</p>
+                </div>
+            </div>
+            
+            <div class="note">
+                <p>If you're looking for more information on traditional archery in Arunachal Pradesh or the Nyokum Yullo festival, consider reaching out to cultural organizations and tourism boards in Arunachal Pradesh. Local cultural experts and tribal elders can provide deeper insights into these traditions and their significance.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Celebrating the cultural heritage and traditional practices of Arunachal Pradesh, India</p>
+        </footer>
+    </div>
+</body>
+</html>

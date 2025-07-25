@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archery: State Sport of Chhattisgarh</title>
+    <style>
+        /* All original styles kept unchanged */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f3e9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.8rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #ff7e5f;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff7e5f;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            padding-left: 30px;
+        }
+
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+
+        .rules-list li {
+            position: relative;
+            padding: 15px 15px 15px 70px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            counter-increment: rule-counter;
+            font-size: 30px;
+        }
+
+        .rules-list li::before {
+            content: counter(rule-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #feb47b;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background-color: #feb47b;
+            color: white;
+            border-left: 4px solid #ff7e5f;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+
+        .benefit-card:hover h3 {
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Archery</h1>
+            <p>The Traditional State Sport of Chhattisgarh, India</p>
+        </header>
+
+        <section>
+            <h2>History of Archery</h2>
+            <p>Archery has deep historical roots in Chhattisgarh, being practiced by tribal communities for both hunting and sport. Over time, it evolved into a structured game and has become a symbol of skill, tradition, and pride in the state.</p>
+
+            <div class="featured-image-container">
+                <img class="featured-image" src="data:image/jpeg;base64,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" alt="Traditional Archery practice in Chhattisgarh" />
+                <div class="image-overlay">
+                    <h3>Grace and Precision</h3>
+                    <p>Archery represents discipline and tradition in Chhattisgarh, passed down from generations of indigenous communities.</p>
+                </div>
+            </div>
+
+            <p>Today, Archery remains an integral part of cultural festivals and tribal celebrations, showcasing the legacy of Chhattisgarh’s traditional warrior spirit.</p>
+        </section>
+
+        <section>
+            <h2>Popularity</h2>
+            <p>In Chhattisgarh, Archery is more than a sport—it’s a cultural identity. Practiced widely in tribal belts and rural regions, it often features in school competitions, village games, and government-supported sports programs.</p>
+            <p>Its revival in recent years has been supported by initiatives aimed at preserving indigenous skills and promoting youth participation in traditional games.</p>
+        </section>
+
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>While the core principles of archery are universal, traditional versions in Chhattisgarh follow regional styles. Basic rules include:</p>
+
+            <ul class="rules-list">
+                <li><strong>Target Shooting:</strong> Players aim arrows at a fixed target from a designated distance using a bow crafted traditionally from bamboo or wood.</li>
+                <li><strong>Scoring:</strong> Points are awarded based on how close the arrow lands to the center of the target. Accuracy and posture are essential.</li>
+            </ul>
+
+            <p>Some local variants involve moving targets or group competitions, making the sport even more challenging and engaging for youth and adults alike.</p>
+        </section>
+
+        <section>
+            <h2>Benefits</h2>
+            <p>Archery contributes to personal development in multiple ways:</p>
+
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Endurance</h3>
+                    <p>Strengthens upper body, posture, and stamina through repeated practice and precise control.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Focus & Patience</h3>
+                    <p>Sharpens mental concentration, patience, and self-discipline, improving overall cognitive balance.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Pride</h3>
+                    <p>Connects younger generations with tribal heritage and fosters community bonding through cultural sport.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Promoting sports like Archery keeps Chhattisgarh’s cultural spirit alive and nurtures pride and skill in future generations.</p>
+        </footer>
+    </div>
+</body>
+</html>

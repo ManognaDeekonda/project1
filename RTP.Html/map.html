@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's Classical Dance Forms</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #FF9933;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        
+        .india-map {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .popup {
+            position: absolute;
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            padding: 15px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .popup h3 {
+            margin-top: 0;
+            color: #FF9933;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .popup img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+        
+        .coordinates-display {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exploring India's Cultural Heritage</h1>
+        <p>Classical Dance Forms of India</p>
+    </header>
+    
+    <div class="container">
+        <p>Classical dances of India beau
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+        
+        .coordinates-display {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exploring India's Cultural Heritage</h1>
+        <p>Classical Dance Forms of India</p>
+    </header>
+    
+    <div class="container">
+        
+            <p>Classical dances of India beautifully combine storytelling, emotion, and rhythm, with each movement reflecting the richness of the country's ancient traditions. These dance forms are deeply rooted in culture and spirituality, expressing myths, devotion, and artistic elegance passed down through generations.</p>
+        
+        <div class="map-container" id="mapContainer">
+            <img src="https://i.pinimg.com/736x/7c/99/f1/7c99f1dcda9b6cbca0f6e6f8cc8ad54b.jpg" alt="India Map" class="india-map" id="indiaMap">
+            <div class="coordinates-display" id="coordinatesDisplay">X: 0, Y: 0</div>
+            
+            <!-- Popup Container -->
+            <div class="popup" id="dancePopup">
+                <span class="close-btn">&times;</span>
+                <h3 id="popupTitle">Dance Form</h3>
+                <img id="popupImage" src="" alt="Dance Form Image">
+                <p id="popupDescription">Description will appear here.</p>
+                <p id="popupOrigin"><strong>Origin:</strong> <span></span></p>
+            </div>
+        </div>
+        
+        <h2>India's Classical Dance Forms</h2>
+        <p>Each of the recognized classical dance styles originates from a different region, preserving unique cultural traditions through intricate footwork, hand gestures (mudras), and emotive facial expressions.</p>
+    </div>
+    <footer>
+        <p>&copy; 2023 India Cultural Heritage Project. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // State boundaries with their dance forms (approximate coordinates)
+        const stateData = [
+            {
+                name: "Tamil Nadu",
+                dance: "Bharatanatyam",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bharatanatyam_dancer.jpg/800px-Bharatanatyam_dancer.jpg",
+                description: "Bharatanatyam is one of India's oldest classical dance forms, originating from Tamil temples. It combines expressions (abhinaya), rhythm (tala), and movement (nritta) to portray devotion and spiritual themes.",
+                coordinates: {x1: 30, y1: 75, x2: 45, y2: 90} // Approximate area for Tamil Nadu
+            },
+            {
+                name: "Kerala",
+                dance: "Kathakali",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kathakali_BNC.jpg/800px-Kathakali_BNC.jpg",
+                description: "Kathakali is a classical Indian dance form that is a story play genre of art, but one distinguished by the elaborately colorful make-up and costumes of the traditional male actor-dancers.",
+                coordinates: {x1: 20, y1: 85, x2: 30, y2: 95}
+            },
+            {
+                name: "Odisha",
+                dance: "Odissi",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Odissi_performance.jpg/800px-Odissi_performance.jpg",
+                description: "Odissi is a classical dance form from Odisha characterized by fluid movements and sculpturesque poses, often depicting stories of Hindu gods and goddesses.",
+                coordinates: {x1: 60, y1: 60, x2: 75, y2: 75}
+            },
+            {
+                name: "Uttar Pradesh",
+                dance: "Kathak",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Kathak_dance.jpg/800px-Kathak_dance.jpg",
+                description: "Kathak is characterized by intricate footwork and spins, and emerged from the storytelling traditions of North India, with influences from Persian dance.",
+                coordinates: {x1: 40, y1: 30, x2: 55, y2: 45}
+            },
+            {
+                name: "Andhra Pradesh/Telangana",
+                dance: "Kuchipudi",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kuchipudi_Dance.jpg/800px-Kuchipudi_Dance.jpg",
+                description: "Kuchipudi is a dance-drama performance art that originated in a village of Krishna district in Andhra Pradesh, known for its graceful movements and strong narrative.",
+                coordinates: {x1: 35, y1: 65, x2: 50, y2: 80}
+            },
+            {
+                name: "Manipur",
+                dance: "Manipuri",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Manipuri_Dance.jpg/800px-Manipuri_Dance.jpg",
+                dance: "Odissi",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Odissi_performance.jpg/800px-Odissi_performance.jpg",
+                description: "Odissi is a classical dance form from Odisha characterized by fluid movements and sculpturesque poses, often depicting stories of Hindu gods and goddesses.",
+                coordinates: {x1: 60, y1: 60, x2: 75, y2: 75}
+            },
+            {
+                name: "Assam",
+                dance: "Sattriya",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sattriya_Dance_Assam.jpg/800px-Sattriya_Dance_Assam.jpg",
+                description: "Sattriya is a classical dance form from Assam that has its origins in the Vaishnavite monasteries where it was performed by monks as part of their daily rituals.",
+                coordinates: {x1: 70, y1: 30, x2: 85, y2: 45}
+            }
+        ];
+
+        // Get DOM elements
+        const mapContainer = document.getElementById('mapContainer');
+        const indiaMap = document.getElementById('indiaMap');
+        const popup = document.getElementById('dancePopup');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupImage = document.getElementById('popupImage');
+        const popupDescription = document.getElementById('popupDescription');
+        const popupOrigin = document.querySelector('#popupOrigin span');
+        const closeBtn = document.querySelector('.close-btn');
+        const coordinatesDisplay = document.getElementById('coordinatesDisplay');
+
+        // Variables to track mouse movement
+        let mouseX = 0;
+        let mouseY = 0;
+        let timeoutId = null;
+
+        // Get coordinates relative to the map image
+        function getRelativeCoordinates(event) {
+            const rect = indiaMap.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+            return {x, y};
+        }
+
+        // Check if coordinates are within a state's boundary
+        function checkState(coords) {
+            for (const state of stateData) {
+                if (coords.x >= state.coordinates.x1 && 
+                    coords.x <= state.coordinates.x2 && 
+                    coords.y >= state.coordinates.y1 && 
+                    coords.y <= state.coordinates.y2) {
+                    return state;
+                }
+            }
+            return null;
+        }
+
+        // Show dance form information
+        function showDanceInfo(state) {
+            function showDanceInfo(state) {
+            popupTitle.textContent = state.dance;
+            popupImage.src = state.image;
+            popupImage.alt = state.dance;
+            popupDescription.textContent = state.description;
+            popupOrigin.textContent = state.name;
+            
+            // Position popup near the cursor
+            popup.style.left = (mouseX + 20) + 'px';
+            popup.style.top = (mouseY + 20) + 'px';
+            popup.style.display = 'block';
+        }
+
+        // Hide popup when mouse moves
+        function hidePopup() {
+            popup.style.display = 'none';
+        }
+
+        // Event listeners
+        mapContainer.addEventListener('mousemove', (event) => {
+            const coords = getRelativeCoordinates(event);
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            
+            // Update coordinates display
+            coordinatesDisplay.textContent = X : ${Math.round(coords.x)}, Y : ${Math.round(coords.y)};
+             // Clear any existing timeout
+             if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            
+            // Set new timeout to check state after a brief pause
+            timeoutId = setTimeout(() => {
+                const state = checkState(coords);
+                if (state) {
+                    showDanceInfo(state);
+                } else {
+                    hidePopup();
+                }
+            }, 300);
+        });
+
+        mapContainer.addEventListener('mouseleave', () => {
+            hidePopup();
+            coordinatesDisplay.textContent = "X: 0, Y: 0";
+        });
+
+        closeBtn.addEventListener('click', hidePopup);
+    </script>
+</body>
+</html>
+
+
+
+
+
+    
+
+
+
+
+</body>
+</html>

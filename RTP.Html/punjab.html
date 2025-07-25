@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatka in Punjab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gatka in Punjab</h1>
+            <p>The Traditional Martial Art of Punjab</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Gatka Practice in Punjab" />
+            <div class="image-overlay">
+                <h3>The Spirit of Gatka</h3>
+                <p>Gatka, the traditional martial art of Punjab, is a testament to the rich cultural heritage of the region.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Gatka in Punjab</h2>
+            <p>Gatka is a traditional martial art that originated in Punjab, India. It was developed by the Sikh warriors for self-defense and as a way to preserve the martial traditions of the region. Today, Gatka is practiced both as a martial art and as a performance art, with practitioners displaying impressive skills with swords, sticks, and other weapons.</p>
+            <p>The sport is deeply embedded in Punjabi culture and history, with regular competitions and demonstrations taking place across the state. It is also closely linked to the teachings and traditions of Sikhism.</p>
+        </section>
+        
+        <section>
+            <h2>History of Gatka</h2>
+            <p>Gatka has its origins in the 15th century, during the time of Guru Nanak. The practice was further developed by the Sikh Gurus and their followers, especially during the time of Guru Gobind Singh, who established the Khalsa and emphasized martial arts training for self-defense.</p>
+            <p>Initially, Gatka was used for military purposes, with warriors using swords and other weapons in battle. Over time, it evolved into a spiritual and cultural practice, with movements and techniques often accompanied by music and rhythm, symbolizing the warrior spirit and discipline.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Gatka</h2>
+            <p>Gatka remains a popular sport and cultural tradition in Punjab, with many young people continuing to take an interest in learning the martial art. It is practiced in schools, gurdwaras (Sikh temples), and dedicated training centers across the state.</p>
+            <p>The sport has gained recognition outside of Punjab, with growing interest in preserving and promoting this ancient martial art form. Various competitions are held annually, where practitioners showcase their skills in traditional forms of Gatka.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules of Gatka are largely determined by the Sikh tradition and the teachings of Guru Gobind Singh. The art involves various weapons, with the primary focus being the sword (kirpan) and the wooden stick (lathi). The main objective is to demonstrate skill, discipline, and the ability to defend oneself using these weapons.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Weapons Used:</strong> Traditional weapons include swords, sticks, and sometimes spears. The use of weapons must be controlled and precise to ensure safety during practice and performance.</li>
+                <li><strong>Safety Measures:</strong> Practitioners wear protective gear such as helmets and pads during training and competitions to ensure safety while engaging in combat-like practices.</li>
+                <li><strong>Techniques:</strong> The techniques of Gatka involve fluid movements, strikes, blocks, and counter-attacks. These techniques are performed in various forms and sequences that showcase both skill and artistry.</li>
+            </ul>
+            
+            <p>The essence of Gatka lies in its emphasis on discipline, respect, and the preservation of cultural traditions. It is not just about physical prowess, but also spiritual and mental strength.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Participation in Gatka offers numerous benefits for individuals and the community:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Gatka helps in improving strength, agility, and cardiovascular health. The fast-paced movements and techniques provide a full-body workout.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Toughness</h3>
+                    <p>The sport enhances focus, concentration, and discipline. Practitioners develop mental resilience and the ability to think quickly in challenging situations.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Preservation</h3>
+                    <p>By practicing Gatka, individuals help preserve an important aspect of Punjabi and Sikh cultural heritage, passing down the traditions to future generations.</p>
+                </div>
+            </div>
+            
+            <p>These benefits extend beyond the individual practitioners, contributing to the cultural richness of Punjab and strengthening the community's sense of identity and pride.</p>
+        </section>
+        
+        <footer>
+            <p>Gatka in Punjab continues to be a symbol of the region's strength, resilience, and cultural pride. Its legacy lives on in the hearts and minds of its practitioners.</p>
+        </footer>
+    </div>
+</body>
+</html>

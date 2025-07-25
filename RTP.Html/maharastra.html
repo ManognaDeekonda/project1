@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atya Patya in Maharashtra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 180px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size:40px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Atya Patya in Maharashtra</h1>
+            <p>Traditional Tag Game of Agility and Strategy</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Players engaged in an Atya Patya match in Maharashtra" />
+            <div class="image-overlay">
+                <h3>Fast Feet & Tactical Play</h3>
+                <p>Atya Patya, Maharashtra’s state sport, blending tradition with thrilling gameplay.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>About Atya Patya</h2>
+            <p>Atya Patya is the official state sport of Maharashtra. It is a traditional Indian tag game that combines speed, strategy, and agility. Played by two teams, it involves chasing and dodging across multiple trenches on the field.</p>
+            <p>The game has deep cultural roots in the rural areas of Maharashtra and is played widely in schools and sports events. Its simplicity and physical nature make it accessible and exciting.</p>
+        </section>
+        
+        <section>
+            <h2>History of Atya Patya</h2>
+            <p>Atya Patya has been played in India for centuries, especially in villages of Maharashtra. The game was traditionally played during festivals and gatherings as a recreational activity for youth.</p>
+            <p>In the 20th century, efforts were made to formalize the rules and structure of the game. Today, there are official tournaments at the state and national levels under the Atya Patya Federation of India.</p>
+            <p>Its historical and cultural significance has contributed to its recognition as the state sport of Maharashtra, preserving indigenous sports heritage.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Atya Patya remains highly popular in Maharashtra, especially in rural and semi-urban regions. Schools and local clubs frequently organize tournaments, and inter-district championships promote competitive spirit.</p>
+            <p>Efforts by state sports authorities to promote traditional games have kept Atya Patya alive in modern times. Its fast-paced nature and low setup cost contribute to its appeal among youth.</p>
+            <p>Its inclusion in cultural events and rural competitions has helped it retain its charm and increase awareness beyond Maharashtra as well.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The game of Atya Patya is governed by a set of simple yet strategic rules. The game is played between two teams, each with designated attackers and defenders. The objective is to tag the opponents and score by crossing the lines on the field.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Structure:</strong> A typical Atya Patya team consists of equal attackers and defenders. Attackers aim to reach the other side of the field while defenders try to tag them.</li>
+                <li><strong>Gameplay:</strong> The field is divided into trenches, and players must evade being tagged by their opponents while trying to tag or cross the boundaries of the opponent’s territory.</li>
+                <li><strong>Time Limits:</strong> Each match has time limits within which teams must score the most points by successfully tagging opponents or crossing lines.</li>
+            </ul>
+            
+            <p>The rules ensure the game stays fast, tactical, and competitive while also promoting teamwork and strategy.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Engaging in Atya Patya provides numerous benefits for individuals and communities:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Atya Patya enhances cardiovascular fitness, agility, and reflexes. The game requires quick movements, improving overall health and stamina.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mental Strategy</h3>
+                    <p>Players develop mental acuity, learning how to read opponents’ moves and plan strategies under pressure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Heritage</h3>
+                    <p>Preserving and promoting Atya Patya connects the youth of Maharashtra to their rich cultural and traditional roots.</p>
+                </div>
+            </div>
+            
+            <p>These benefits have made Atya Patya an important sport not only for fitness but also as a cultural touchstone for Maharashtra.</p>
+        </section>
+        
+        <footer>
+            <p>Promoting Atya Patya in Maharashtra contributes to preserving traditional sports and building physical and mental fitness in communities.</p>
+        </footer>
+    </div>
+</body>
+</html>

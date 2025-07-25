@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golelu - Traditional Game from Andhra Pradesh</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f5eb;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e07a5f;
+            color: white;
+            border-radius: 9px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            background-color: #dd6b4d;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 5rem;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .image-container {
+            flex: 1;
+            min-width:300px ;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 450px;
+            display: block;
+        }
+        
+        .text-container {
+            flex: 2;
+            min-width: 400px;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: #fff8f0;
+        }
+        
+        h2 {
+            color: #3d405b;
+            border-bottom: 3px solid #e07a5f;
+            padding-bottom: 12px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        ul {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        p {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+        
+        .note {
+            background-color: #f4f1de;
+            padding: 25px;
+            border-left: 6px solid #e07a5f;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .note:hover {
+            background-color: #f0e9d2;
+            border-left-width: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 1rem;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            body {
+                padding: 15px;
+            }
+            
+            .content-wrapper {
+                gap: 30px;
+            }
+            
+            section {
+                padding: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+            
+            .note {
+                padding: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 15px;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 20px;
+                border-radius: 8px;
+            }
+            
+            p, li {
+                font-size: 1rem;
+            }
+            
+            .note {
+                padding: 15px;
+                margin-top: 20px;
+            }
+            
+            footer {
+                padding: 20px;
+            }
+        }
+        h2{
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GOLELU</h1>
+        <p class="subtitle">A Traditional Game from Andhra Pradesh, India</p>
+    </header>
+    
+    <div class="content-wrapper">
+        <div class="image-container">
+            <img src="golelu.jpg" alt="Golelu traditional game being played" />
+        </div>
+        
+        <div class="text-container">
+            <section>
+                <h2>History of Golelu</h2>
+                <p>Golelu is an ancient game that originated in Andhra Pradesh, with its roots deeply embedded in traditional Indian games. The game is especially popular in rural areas of the region and is often played during festivals and special occasions, serving as both entertainment and a way to strengthen community bonds.</p>
+                <p>Passed down through generations, Golelu represents the rich cultural heritage of Andhra Pradesh and serves as a connection to ancestral traditions that continue to thrive in modern times.</p>
+            </section>
+        </div>
+    </div>
+    
+    <section>
+        <h2>Rules and Regulations</h2>
+        <p>The rules of Golelu may vary depending on the region and the players. However, here's a general overview:</p>
+        <ul>
+            <li><strong>Gameplay:</strong> Golelu is typically played with small stones or shells, which are rolled or thrown onto a designated area. Players take turns and follow specific patterns of movement.</li>
+            <li><strong>Objective:</strong> The objective of the game is to collect points by rolling or throwing the stones/shells into specific areas or targets. Skilled players can score high points through precision and technique.</li>
+            <li><strong>Number of Players:</strong> The game can be played with two or more players, making it a versatile activity for various group sizes. In festival settings, larger groups may participate in tournament-style play.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Benefits</h2>
+        <ul>
+            <li><strong>Physical Fitness:</strong> Golelu improves hand-eye coordination, fine motor skills, and dexterity as players carefully aim and throw the game pieces. Regular play can enhance physical reflexes and precision movements.</li>
+            <li><strong>Mental Focus:</strong> The game requires concentration and strategy, which can help improve mental focus and discipline in players of all ages. Players must calculate angles, distances, and apply appropriate force in their throws.</li>
+            <li><strong>Social Benefits:</strong> Golelu is often played in groups, promoting social interaction, teamwork, and community bonding - aspects that were vital in traditional Indian society. The game creates opportunities for intergenerational play and cultural transmission.</li>
+            <li><strong>Cultural Connection:</strong> Playing traditional games like Golelu helps maintain a connection to cultural heritage and promotes awareness of regional traditions among younger generations.</li>
+        </ul>
+        
+        <div class="note">
+            <p>If you're looking for more information on Golelu, we recommend exploring local resources or cultural organizations in Andhra Pradesh that may have more detailed information on the game's history, rules, and cultural significance. Traditional game experts and village elders often carry valuable knowledge about regional variations of the game.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Preserving the cultural heritage of India through traditional games.</p>
+    </footer>
+</body>
+</html>

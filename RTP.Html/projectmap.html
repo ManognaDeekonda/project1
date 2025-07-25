@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports in Bharat</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="map.css"> -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .heading {
+      font-size: 3rem;
+      color: #0d6efd;
+      font-weight: bold;
+    }
+
+    .img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .popup {
+      position: absolute;
+      background: white;
+      border: 1px solid #333;
+      padding: 8px;
+      z-index: 9999;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      max-width: 280px;
+    }
+
+    .popup img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .popup div {
+      font-size: 1.9rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Sports in Bharat</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">States</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Heading -->
+  <header>
+    <h1 class="heading">Sports In Bharat</h1>
+  </header>
+
+  <!-- Image Map -->
+  <div class="container">
+    <img class="img" src="india-map-2019 2.jpg" alt="map" usemap="#work">
+
+    <!-- Your existing <map> and <area> elements remain unchanged -->
+    <map name="work">
+        <area shape="poly" coords="234,922,241,936,254,954,263,972,269,994,280,1013,284,1032,289,1047,298,1061,271,944,282,964,290,974,295,982,298,991,260,939,300,1002,306,1013,311,1020,309,1037,304,1050,247,924,267,952,295,1042"  data-sport-name="Kabaddi" data-sport-icon="kabaddi.png" width="80px"  href="kerala.html" alt="kerala">
+      
+        <area class="data-sport-icon" shape="rect" coords="670,501,707,562"  data-sport-icon="cricket.jpg" width="80px" data-sport-name="Cricket" href="westbengal.html" alt="westbengal">
+
+
+        <area shape="rect" coords="364,245,403,313"  data-sport-icon="baghbakri.jpeg" width="80px" data-sport-name="Bagh Bakri" href="uttarakhand.html" alt="uttarakhand">
+
+
+        <area shape="rect" coords="358,308,510,467"  data-sport-icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkMrwa_Py8a8aSu0riIe8dshBiNU7x03nc0w&s" width="80px" data-sport-name="Weigth Lifting" href="up.html" alt="uttara pradesh">
+
+        <area shape="rect" coords="798,501,807,534"  data-sport-icon="gellachut.jpg" width="80px" data-sport-name="Gella chut" href="tripura.html" alt="tripura">
+
+
+        <area shape="rect" coords="364,670,434,751"  data-sport-icon="badminton.jpg" width="80px" data-sport-name="Badminton" href="telangana.html" alt="telangana">
+
+
+        <area shape="rect" coords="317,950,398,996"  data-sport-icon="tennis.jpg" width="80px" data-sport-name="Tennis" href="tamilnadu.html" alt="tamilnadu">
+
+
+        <area shape="rect" coords="687,358,700,377"  data-sport-icon="gillidhanda.jpg" width="80px" data-sport-name="Ghilli Dhanda" href="sikkim.html" alt="sikkim">
+
+
+        <area shape="rect" coords="201,308,209,508"  data-sport-icon="basketball.jpg" width="80px" data-sport-name="BasketBall" href="rajasthan.html" alt="rajasthan">
+
+
+        <area shape="rect" coords="260,207,283,279"  data-sport-icon="gatka.jpg" width="80px" data-sport-name="Gatka" href="punjab.html" alt="punjab">
+
+
+        <area shape="rect" coords="581,576,507,711"  data-sport-icon="hockey.jpg" width="80px" data-sport-name="Hockey" href="odisha.html" alt="odisha">
+
+
+        <area shape="rect" coords="888,410,908,432"  data-sport-icon="spearthrowing.jpg" width="80px" data-sport-name="Spear Throwing" href="nagaland.html" alt="nagaland">
+
+
+        <area shape="rect" coords="755,436,829,452"  data-sport-icon="rahmukurah.jpg" width="80px" data-sport-name="rah mukhrah " href="meghalaya.html" alt="meghalaya">
+
+
+        <area shape="rect" coords="879,449,888,488"  data-sport-icon="polo.jpg" width="80px" data-sport-name="Polo" href="manipur.html" alt="manipur">
+
+
+        <area shape="rect" coords="231,602,347,663"  data-sport-icon="atyapatya.jpg" width="80px" data-sport-name="Atya Patya" href="maharastra.html" alt="maharastra">
+
+
+        <area shape="rect" coords="335,417,339,601"  data-sport-icon="mallakamb.jpg" width="80px" data-sport-name="MallaKhamb" href="madhyapradesh.html" alt="madhyapradesh">
+
+
+        <area shape="rect" coords="261,762,328,920"  data-sport-icon="kambala.jpg" width="80px" data-sport-name="Kambala" href="karnataka.html" alt="karnataka">
+
+
+        <area shape="rect" coords="548,493,606,550"  data-sport-icon="hadapota.jpg" width="80px" data-sport-name="Hada Pota" href="jharkhand.html" alt="jharkhand">
+
+
+        <area shape="rect" coords="242,18,371,171"  data-sport-icon="icestoke.jpg" width="80px" data-sport-name="Ice Stock" href="jammukashmir.html" alt="jammukashmir">
+
+
+        <area shape="rect" coords="266,297,312,318"  data-sport-icon="mallayudd.jpg" width="80px" data-sport-name="Malla Yudd" href="haryana.html" alt="haryana">
+
+
+        <area shape="rect" coords="76,501,201,562"  data-sport-icon="khokho.jpg" width="80px" data-sport-name="Kho-Kho" href="gujarat.html" alt="gujarat">
+
+
+        <area shape="rect" coords="525,506,433,709"  data-sport-icon="archery.jpg" width="80px" data-sport-name="Archery" href="chhattisgarh.html" alt="chhattigarh">
+
+
+        <area shape="rect" coords="820,397,855,445"  data-sport-icon="dhopkel.jpg" width="80px" data-sport-name="Dhopkel" href="assam.html" alt="assam">
+
+
+        <area shape="rect" coords="842,349,971,340"  data-sport-icon="narchery.jpg" width="80px" data-sport-name="Nyokum Archery" href="arunachalpradesh.html" alt="arunachalpradesh">
+
+
+        <area shape="rect" coords="359,800,413,879"  data-sport-icon="golelu.jpg" width="80px" data-sport-name="Golelu" href="andhrapradesh.html" alt="andhrapradesh">
+
+
+        <area shape="rect" coords="844,493,851,556"  data-sport-icon="insuknawr.jpg" width="80px" data-sport-name="Insuknawr"href="mizoram.html" alt="mizoram">
+
+
+        <area shape="rect" coords="296,171,356,225"  data-sport-icon="birbilling.jpg" width="80px" data-sport-name="Bir Billing" 
+        href="himachalpradesh.html" alt="himachalpradesh">
+
+
+        <area shape="rect" coords="194,809,205,827"  data-sport-icon="football.jpg" width="80px" data-sport-name="Football" href="goa.html" alt="goa">
+
+
+        <area shape="rect" coords="558,392,659,449"  data-sport-icon="atheletics.jpg" width="80px" data-sport-name="Athletics" href="bihar.html" alt="bihar">
+    </map>
+  </div>
+
+  <!-- Bootstrap & JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Interactive Popup Script -->
+  <script>
+    const areas = document.querySelectorAll('area');
+    let currentPopup = null;
+    let removeTimeout = null;
+
+    areas.forEach(area => {
+      const href = area.getAttribute('href');
+      const name = area.getAttribute('data-sport-name');
+      const icon = area.getAttribute('data-sport-icon');
+
+      area.addEventListener('mouseover', e => {
+        clearTimeout(removeTimeout);
+        if (currentPopup) currentPopup.remove();
+
+        const popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.innerHTML = `
+          <img src="${icon}" alt="${name}">
+          <div>${name}</div>
+        `;
+        popup.style.top = `${e.clientY + window.scrollY + 5}px`;
+        popup.style.left = `${e.clientX + window.scrollX + 5}px`;
+
+        popup.addEventListener('mouseenter', () => clearTimeout(removeTimeout));
+        popup.addEventListener('mouseleave', () => {
+          removeTimeout = setTimeout(() => {
+            popup.remove();
+            currentPopup = null;
+          }, 100);
+        });
+
+        popup.addEventListener('click', () => {
+          window.location.href = href;
+        });
+
+        document.body.appendChild(popup);
+        currentPopup = popup;
+      });
+
+      area.addEventListener('mouseout', () => {
+        removeTimeout = setTimeout(() => {
+          if (currentPopup && !currentPopup.matches(':hover')) {
+            currentPopup.remove();
+            currentPopup = null;
+          }
+        }, 100);
+      });
+    });
+  </script>
+
+</body>
+</html>

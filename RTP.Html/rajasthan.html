@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball in Rajasthan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 200px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Basketball in Rajasthan</h1>
+            <p>Hoops, Energy, and Team Spirit</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Basketball Game in Rajasthan" />
+            <div class="image-overlay">
+                <h3>The Game of Basketball</h3>
+                <p>Basketball is growing in popularity across Rajasthan, providing young athletes with a chance to showcase their skills on the court.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Basketball in Rajasthan</h2>
+            <p>Basketball is a widely recognized sport in Rajasthan, with an increasing number of youth participating in the game at school, college, and club levels. The state has developed numerous courts and sports facilities where players can hone their skills and compete in local tournaments.</p>
+            <p>The state has produced talented players who have represented Rajasthan in national and international basketball tournaments. The popularity of the game continues to rise, especially among the younger generation, driven by both local and international influences.</p>
+        </section>
+        
+        <section>
+            <h2>History of Basketball</h2>
+            <p>Basketball was introduced in India in the early 20th century, and over time, it gained a strong foothold in various states, including Rajasthan. The sport was initially played at the school and college levels before spreading to other segments of society.</p>
+            <p>In Rajasthan, basketball grew rapidly in the late 20th century, with tournaments being organized at various levels. The increasing interest led to the construction of dedicated basketball courts, providing athletes with proper facilities to practice and compete.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Basketball</h2>
+            <p>Basketball has witnessed a surge in popularity in Rajasthan in recent years. School and college competitions, along with local leagues, attract hundreds of participants and spectators. The sport is a key part of many sporting events and festivals held throughout the state.</p>
+            <p>The state's younger generation has shown a keen interest in basketball, and sports academies offering professional training have contributed to the development of young talent. Rajasthan has also witnessed growing participation in national basketball championships, bringing attention to the state's talent pool.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>The rules of basketball in Rajasthan adhere to the International Basketball Federation (FIBA) standards. This ensures that players are well-versed in the global regulations governing the game, enabling them to transition easily to national and international competitions.</p>
+            
+            <ul class="rules-list">
+                <li><strong>Game Duration:</strong> A standard game is played in four quarters of 12 minutes each, with a short break between quarters. Overtime is played in case of a tie.</li>
+                <li><strong>Team Composition:</strong> A basketball team consists of five players on the court at a time. Teams compete to score by shooting the ball through the opposing team’s hoop.</li>
+                <li><strong>Fouls:</strong> Personal fouls occur when a player makes illegal physical contact with an opponent. Accumulating too many fouls may lead to disqualification from the game.</li>
+            </ul>
+            
+            <p>Local tournaments in Rajasthan follow these FIBA regulations, ensuring that players gain experience in standard competition formats.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Basketball</h2>
+            <p>Playing basketball offers numerous benefits for individuals and the community:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Basketball helps improve cardiovascular health, agility, and muscular strength. The fast-paced nature of the game offers an excellent workout.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Teamwork and Leadership</h3>
+                    <p>The sport requires effective teamwork, cooperation, and communication on the court. It helps develop leadership qualities among players.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Focus and Coordination</h3>
+                    <p>Basketball improves concentration, hand-eye coordination, and decision-making skills, which are beneficial both on and off the court.</p>
+                </div>
+            </div>
+            
+            <p>The sport fosters a strong sense of camaraderie and discipline, helping individuals achieve personal and team success.</p>
+        </section>
+        
+        <footer>
+            <p>Basketball in Rajasthan is gaining momentum, offering an exciting platform for athletes and bringing people together through the love of the game.</p>
+        </footer>
+    </div>
+</body>
+</html>

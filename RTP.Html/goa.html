@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football: State Sport of Goa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f7f3e9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.8rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #ff7e5f;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff7e5f;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            padding-left: 30px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            position: relative;
+            padding: 15px 15px 15px 70px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            counter-increment: rule-counter;
+            font-size: 30px;
+        }
+        
+        .rules-list li::before {
+            content: counter(rule-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #feb47b;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #feb47b;
+            color: white;
+            border-left: 4px solid #ff7e5f;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Football</h1>
+            <p>The Pride of Goa – State Sport Celebrating Passion and Unity</p>
+        </header>
+        
+        <section>
+            <h2>History of Football in Goa</h2>
+            <p>Football has been an integral part of Goan culture since the Portuguese era, making it one of the earliest Indian states to embrace the sport. Over time, it evolved from a colonial import into a symbol of local pride and enthusiasm.</p>
+            
+            <div class="featured-image-container">
+                <img class="featured-image" src="data:image/jpeg;base64,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" alt="Football players in action during a local tournament in Goa" />
+                <div class="image-overlay">
+                    <h3>The Passion of Football</h3>
+                    <p>A sport that unites the people of Goa with intense matches, community tournaments, and electrifying celebrations.</p>
+                </div>
+            </div>
+            
+            <p>From schoolyards to professional stadiums, football is woven into the daily life of Goans. Its legacy continues through youth academies, state clubs, and community-driven leagues.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity</h2>
+            <p>Football is the most popular sport in Goa, with an avid fan base and widespread participation across all age groups. The Goa Professional League and clubs like FC Goa in the Indian Super League have fueled passion for the sport.</p>
+            <p>Local tournaments, village leagues, and school competitions are common, offering young talent a platform to shine. The sport is a unifier and a source of collective identity for Goans.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Football in Goa follows international rules set by FIFA, but grassroots versions played in villages have some relaxed variations to adapt to local conditions:</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Play:</strong> Played between two teams of 11 players each aiming to score goals by getting the ball into the opposing net.</li>
+                <li><strong>Game Duration:</strong> A standard game consists of two 45-minute halves with a 15-minute break in between.</li>
+            </ul>
+            
+            <p>Matches emphasize sportsmanship and team spirit, while village-level games may include mixed-age teams and shorter durations based on the setting.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits</h2>
+            <p>Football contributes significantly to the overall development of individuals and the community:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Endurance</h3>
+                    <p>Improves cardiovascular fitness, strength, and stamina. Promotes healthy habits through regular movement and training.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Teamwork & Leadership</h3>
+                    <p>Fosters collaboration, communication, and leadership skills. Encourages working towards common goals and shared victories.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Emotional Well-being</h3>
+                    <p>Boosts self-esteem, reduces stress, and enhances social bonding. Builds resilience and a strong community culture.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>By cherishing sports like Football, Goa not only celebrates athletic excellence but also strengthens its cultural and social roots.</p>
+        </footer>
+    </div>
+</body>
+</html>

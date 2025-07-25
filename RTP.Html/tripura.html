@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gellachut in Tripura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 190px;
+        }
+        
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        section:hover h2 {
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: white;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+        
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+        
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+        p{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gellachut in Tripura</h1>
+            <p>Traditional Strength and Agility</p>
+        </header>
+        
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,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" alt="Gellachut in Tripura" />
+            <div class="image-overlay">
+                <h3>Gellachut: The Spirit of Tripura</h3>
+                <p>A traditional sport of Tripura, Gellachut showcases agility, strength, and cultural heritage.</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Gellachut in Tripura</h2>
+            <p>Gellachut is a traditional and cultural sport practiced in Tripura, often played during festivals and community gatherings. It is a physically demanding game that requires strength, stamina, and agility, making it popular among the people of Tripura.</p>
+            <p>The sport is played in a competitive and fun-filled environment, and it plays an important role in preserving the cultural heritage of the state.</p>
+        </section>
+        
+        <section>
+            <h2>History of Gellachut</h2>
+            <p>Gellachut has been a part of the cultural landscape of Tripura for centuries. Historically, it was played by the indigenous communities of the state, and over time, it has gained widespread popularity.</p>
+            <p>The sport is deeply tied to the traditions and rituals of the local tribes, and its preservation is an important aspect of the region’s cultural identity.</p>
+        </section>
+        
+        <section>
+            <h2>Popularity of Gellachut</h2>
+            <p>Gellachut is widely enjoyed in Tripura, particularly in rural areas. The game is commonly played during festivals, local fairs, and sporting events. It is also a common activity during community gatherings, where it brings people together.</p>
+            <p>The sport's popularity is growing, and efforts are being made to promote it as a competitive activity as well, ensuring that the traditional game reaches a broader audience.</p>
+        </section>
+        
+        <section>
+            <h2>Rules and Regulations</h2>
+            <p>Gellachut has simple rules that emphasize teamwork, strength, and agility. Although the specifics of the game may vary by region, the general rules include:</p>
+            
+            <ul class="rules-list">
+                <li><strong>Team Formation:</strong> Gellachut is typically played between two teams, each consisting of several players. The objective is to overcome the opposing team by using strength and strategic moves.</li>
+                <li><strong>Goal of the Game:</strong> The main goal is to overpower the opposing team through force and agility, making it a test of both physical and mental endurance.</li>
+                <li><strong>Endurance:</strong> Players must endure physical contact and employ tactics to unbalance their opponents, requiring strength, strategy, and coordination.</li>
+            </ul>
+            
+            <p>Local competitions in Tripura follow these basic principles, fostering fair competition while maintaining the cultural integrity of the game.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Playing Gellachut</h2>
+            <p>Gellachut offers several physical and cultural benefits:</p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Physical Fitness</h3>
+                    <p>Gellachut enhances strength, agility, and endurance, contributing to overall physical fitness and stamina.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Preservation</h3>
+                    <p>Playing Gellachut helps preserve the traditional culture of Tripura, keeping the heritage alive for future generations.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Community Building</h3>
+                    <p>Gellachut fosters teamwork, social interaction, and community spirit, as it is often played in a group setting during festivals and gatherings.</p>
+                </div>
+            </div>
+            
+            <p>These benefits make Gellachut not just a sport but an integral part of the social and cultural fabric of Tripura.</p>
+        </section>
+        
+        <footer>
+            <p>Gellachut is a vibrant part of Tripura’s cultural landscape, and its continued practice ensures the preservation of both tradition and athleticism in the state.</p>
+        </footer>
+    </div>
+</body>
+</html>

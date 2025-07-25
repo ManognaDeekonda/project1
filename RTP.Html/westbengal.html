@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket in West Bengal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 2500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .featured-image-container {
+            width: 60%;
+            margin: 30px 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            height: 400px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            margin-left: 100px;
+            padding-right: 190px;
+        }
+
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .featured-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-overlay p {
+            font-size: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        section:hover::before {
+            opacity: 1;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+
+        section:hover h2 {
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .benefit-card {
+            width: 30%;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background-color: #3498db;
+            color: white;
+            border-left: 4px solid #2c3e50;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-card:hover h3 {
+            color: white;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            counter-reset: rule-counter;
+            margin: 20px 0;
+        }
+
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 30px;
+        }
+
+        .rules-list li:hover {
+            background-color: #e9f5ff;
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-card {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-image-container {
+                height: 300px;
+            }
+        }
+
+        p {
+            font-size: 30px;
+        }
+        h3{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cricket in West Bengal</h1>
+            <p>The Beloved Game of Passion and Glory</p>
+        </header>
+
+        <div class="featured-image-container">
+            <img class="featured-image" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUWGRoaGRgYFR8gGxgeIB0YGhoaGh0dICggHh8lHhgYITEhJikrLi4uGiA1ODMtNygtLisBCgoKDg0OGxAQGzIlICUtLS0tNS8tLS8vLS81LS0tLS01Ly0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAgMEBQYBBwj/xAA/EAABAgQEAwYEBAYBAwUBAAABAhEAAyExBBJBUQVhcQYiMoGRoROxwfAUQtHhByNSYnLxFTOCsiRDkqLCFv/EABsBAAIDAQEBAAAAAAAAAAAAAAADAQIEBQYH/8QAMBEAAgIBBAADBwMEAwAAAAAAAAECEQMEEiExE0FRBSJhkaHR8DJxgRRC4fEVscH/2gAMAwEAAhEDEQA/APcYIIIACCCCAAggggAIIIDAAQQQQAcMdgiFxnHiRImTi3cSVV1IsKc4AH8XikS0la1BKRckxWp7UYMt/wCol13U3q9uhjwjjnaidPWpcxZJPOg5JGgihm8RVcEv1jZHSrzZErR9UfECkulTgihSfcEQk/7EeEdge2y5E0BSnlkstH/6Gx+ce4YrEoQkzbjKD3QVEipDAVN4TlwuDohSskCZ3dqdOvygTMCgCkggsXehB/aIsucoyipCXWQSEqNCWoCasLWhrALPw0LmZUlhQKepYsFBnrRtWEKoLLJSqHlCUzQSwvQnzt8o4pJysm/P3jkmSwAJeg9ogkfghicSpKglgpiA7s/NiD6GHQYCRUcEcJjpgAEwhajVmtRzrzhQEJSp/cel/rAAxhMXnsFUUUnMkioez6c+kSgmrwwuUru5SAkM45D7EPJv98/2iWQr8wWpqwqCCIJCB44RHYACCCCAAggggAIIIIACCCCAAggMEABBBBAAQRwR2AAjH/xVxYRw6aNVlKQN6g/SNeYxvHew0idNXPm4vEJzGozy8qf7UlcslKeTxeFJ2y0avk+eihSlgaqLeZpD8nCpUknO43CFN6kARpe3PZ7DoxipchajLTKTMJUSVAuXygDvOMpoNaRmcPJkmZnmFQSlLMsj+nIEkIzrdqk923ONayJl82J0vidkS0SlIVnKhMJAYO5DM2UqepaPb+xHa7Dz5MqV8VInIGVpgUKAsGcCrUvpHj2EwSVzJUtMxRmFWcKbIkd0EW8KUpQCAG2YRM4tnkzj8fvV7q5QSA/MkOKvDXDxFTMrSg6s9e4nxwrnIRh5yELQSlaZjgFObvkNXMAmhZql7xbTMQ60oQhwWKyFBjRV66MAOqdBHkPBe0UsTviZV/EUkgEl7hiUkXNdo9IwHaSUQykiXRNFqKaAMz5LPVibkwjLhcapWL3erNcJoS2Y1ND1qf1hvDT1KbMCkk+E1YVYlqB21MQcHxATu8FAgMycpvuHS9qOHurysQs1FuYP6i9RGVquByd8o7h8+ZecAJChkb+nKL1vmzbaRJNojLcIOTKC1iKOalwK6kw/LYa66nev30ipZCJebMp8uRhlu+uZ9Nmh2OwiwGu/LnAAxjcbLkpCllgVBIoS5UaUHmYkC+v0MRZmLQZiZbOVAqBZwGavK8SkBqRLXBCdsTNCqZWvV3tr5w1hMGJZWQVEzFFRzKJbRhsALCJUJUPsxFk0KhK1MH+QjoMdgJEpEKhgS3IUbh2qaAs71Y2+9XQq3OAgVBDKpyQaqANBfe0PQEhBCDMAuR6wQALggggAIII4TAB2CEqDihaAlhAAqEpU+jQoQ2tBJu3ToRXlUekADkcBjmaIYxa6H4KgMygpyHSkZmWAknMCwYCve5QEpWTG1iBxjCJWErMsTPhqzZSkFwQygAdWLjmkRIxcwpAKWfMkByWLkPbVnbm1odlTXSCQRQFjcciz1gCuLMHicInFSPw6cLLQEAZ1zFoQpJSA6khAURsSWoSKR5ljOxawVZvhoUnwjMyVV8SkBJZxVixNAQHjdfxC7WS3KZKQVINZou4sAxqBv6c8LwORjMXOKJbkqrWw3Jh0bSs6eHSy8O8nC/PkI4NwaYnEKKlBQKSM6SWIUQVKqBo4/wC6Nlw3BhSGIHdLu2zjXkYq8dw+bhFKQtfhIDpspRSFEh6sHbbk7wnDcaKityPDQK/qs8MwaiU8mxM43tDHCEd6/wBkrjOETMUkLlZxotIqgAM4a9xSJEjETcKjKv8Any0lsyR300ZmulQBKXD20arXC+IhRStRAysF5S7VL0Jo/pEuXi0BSTLSEkTDMbQliHVo9vSOlPFaqjhx11OpF9wfEBTLCQFKIdIBRc+IpINEpbrF68z8qFBQzDKD3VCgBewJAdtM0ZXEBK8qhOVKUpRs9/EK6AWY3EaThsoypKAlcxTJCQouoku2Yi35q8gLtHNzR2nTwZFNcdFuJ3hHeDi5NBYVNiToNWJ0iTLcMCXpUszmnOkNKWAbOov6B/vzh79IzM2I4KKcas/Pn6fKHVkAVtDaEZQAHLBqlz5k3MQcRLKpJRmqaOdOvo0C5IbonpNvpCgYr+C4Yol5Sa1t1NjeJfxC7BideQga5omMrSbHng0/WGi4Bap5n0hjhwUJfeKndR7xc1JLPyf0grgL5onQRwQlamiCxwk9GNaX+zAslqAPzNIbE091wA96uxNgGFesLXMqzc/9RJA3OkJDqCApTgtuRQX5Q+NKQyAorBdksaNUn9IJWIClKSH7sBCaHswgjhlDaORBJ1R2vCgYSH2944K70+/OIJHI40EJKuR9uX35QMBYjhhKPPzgeCwFwlamD18hCo5EgRcRhXWmYkJzju5lP4CQVgMRU5RWFTZ4CQsqSlINSr0u7CrRIMZHtH2p+EVypCfiTAe8+ZkuCad1WYuGaw5s0Ky5Y4lukxuOEsrUUrNWRa9Pe4aMX/EXtKJMsyEKZah3yPypa3VXy6xj8T2mxZmfHBWr4Tqyo71goKClHLLTqCEAqGqXiu7CYA43FCVijMnSQ82XNV4lAkvKnEWKVOCdCCH7yYnT54ZbfoaYYo4MieTlfD1IXZrsvieITHSMsoGsxQ7vQbnkPaPbuzvZ+Tg5Xw5YqfEs+JZ3PLYaRPwmHRLTlQnKkWAFB0G0NcUx6ZMiZONQhJV1pQDqaQ+UnLgXqtZLL3xE8g7dTCnFYgH8y9OiWf1aMIJv8zvFkhz12jSnjEvEKWMQv4c0knOQ6C9eYSd37tug7N4BLSAtKpa01LoWkvqzZiVE+Y2AhEcmPBntvszahvNp1S8jPYbEKCg2bMoOQk6Uy2saEv03i/wWNygDxKGlkp/yPpSKKdJmIWpWQ1uCAUnQCrU08otOHziRSWgEbLC2/wAUoTlHq/zjt4c6m+Ged1OPjo1eA4plSElOYEOQzEvZZ2bR/ePQsFjZRSkpUzp7qKZtHA1p9Y8iVPWA75U3LCr/ANxf/wAlRoezc5TEVUCQe7SrixCQkE28URqsamrI0M5YpNXwz0uQpLg0fcmopUPuGDw8lJNcz0IbfY8vq4ikwOPEwClizquNFb6C5udbGLI4jKlxVyAALOS3tHMlFrg7sZpqx5eINQhOYh7lq1auz0h5ABTUMYbBIszNet6NDasQ4dBBYsa3bxbVEVJuuxqYMj98gmjttt96xIw5Dqp3jq16b8oMUvuEsVZbjU2e/J4WlQCe6HDOBuPlrvE3wCVMbVOIKlKOUBhdwefrSOInkqSxTlrc1JBFAG2J9BDWOIPiS6QxIChffcipOlUwzLw8ooC8ygBmLuxGhb29oskqtlHJ3SLNKmAAc8+RO8OmIJKkhn6Ualb3Lt7iH0rCqJYjV60ijQxSFpSQABUakmrb8zaESld5QqSGuGAcWB1tHZbh3yhAAytoGq+wjqUOX5uHq2lG3D+sBJ1JfSo9o6BW2nipWFBQ/SOKLjukcjeAkiYjiUtKik5nGwMETkwRNx9CtS9focUmACK7E8dkIWpBWMybilHAOvIiI0ztJK0BPr+kZpanFF05GmODLLqLLqsEZjE9qiPDKPn/AL+kU87tViC+VATrv9BC/wCsx+XIxaPL5o30s0hM1YF2bVzHjmP7Q4lT/FxBRyBb1cxVzONSJYK5sxa3sCosejke0a9r2WI2U6bPa8RxvDS/HPlg7Zw/pEHGdsMLLTmUs5R+bKw9VMI8f4bxHG8QK04D8PhJctsyrzGNi+UjQ6DrGiw3BpDtKlKxk1qzFAza6vMLpTX8oI6Rzc+qzQe2Ct+i5f8A2kvqacWHHLt/+fn0PTJnGsOA5mpbkX9hHnGIxahNEqWrMFFRChQChLzAWcMKlqRq+GdjZeVJnlS1MHSFZUpLWpUtu8ZzH4ZMuZMSqWEuCjKhB8JJBYAZlOKPautoxa7xpRi8sV8Ktv7G7SeBByWNtuvOq+5h+JcbnheIEpS5aApAlhAY/DGUTsjCsxwDqQM7MBGo4H2mGEQ8mUkS13UQ4URq4Yk+cSZPDsViJZIwwEoCiVkAkXc5r5QAMoBF6mNt2d4VLThky1S0ihzIIdJJYuxodKijvD8OPJkpK415+vkUySx47clu+HoZ0/xCLZsiCdqj7/eM32o7frxElUgISkKZyHcsXavNj5RuOJdg8JMcpCpZLA5DT0IP0jP4n+FaalOIoN5dR6GsPhDVRfvO/l/gy5Xppr3VRhOz3BjiJol5XJZthz6R7Rg+zclGHEhnFypmVmLd7ls2wEM9k+y8vBoLHPMNCvLQDYBywi+bRuf396Q3Hi7lk7f0M0pcbY9HkHaDhqpExlSEKOncSyuY7rnoVOK9YqMTNmgOJYl/45ArydCz6ER7NxrAialrH8p2J06H6R53xPhyUKAUQCTUqLCMuHO9Hq4xa919P89BWo06zYW12jPSRnGXvFZY5lKzE8gT8hSJWGUqUrvTRLPKYnPvQJzK+7REmrzqyyhklZnXMUGzsfAmzJ0JuYsOHcHlyR/JIIqzUIJ0chjfarR7dS3Kl0eVlDZy+zcdl+Kypp+GUqCi3fILLawJUkF/nblGjnSwBlJypdO18wYVGp9Y8mw/EZsuYO8m9HDHoW7vtHpHZ7igxCSk5krDE1q1PWzHcVoXbmavTuD3Lo62h1Smtkuyxx2IEpOZbCWAStRNRswA720Mzpqfh5zQki6STWiQUs4LKqA3Vqwzxjhxmrl1og5jXmNNbEP7GO4mblRUAObFx1rt9CA0ZUlwbJOVu+vIg8TxUxTBJoaXYeew5RO4aCgGWSXBGW7OR8rRUYbESUIUlGYsQogl1EE1Ff8AI15Q8njSQv4iRnBYGrKS2n784e4NqkjPHIk9zZpmCnSbEMab6fOIc8hKcqDkahAvVjT1venKKo9oAoAZmLhla+f3vAnEOrxP5fXZvlFI4ZLsbLPF9E7EqoACXIAFTbf5w/gzkQTqCczEnnXnUesQMOVUtrEkYxu6s0IrRwDEyi6oIyV2S8DPC84BJqSyhRi3tenOJ0tAAYRTN8JJD99QorYctf8AURsNiVrV3SVNXcbaxR475XQxZdtJ9l5ikqYlNS1Eksl9yweKziXDZs1kiaqWNSgkNRqMQQRWJ0qUsjvKodBr5iJMtAH+3+cUUtvRdxU+yuQFNYq53fzasEWhTHIN4eGeb9qpOTFzifzZFjoU5fmgxSjisxPhSOpP+o9S4pwSRiCFTUZikMO8oUuxykOH357w3K7PYZLNJlkCwKXru6iY4k/Z8nklK1Tdneh7RgscYtO0qPMhxbEmwQOiCT7kiEnh2NneETS+oSQPUAR61LkS0VCEIA2AA828/aJIXGjHplB8v6GXLrN/SPJeHfw4xKiTMyB7lZc+zxqeH/w+lJDTJhXyCQB0q9I2EzMxYgUo4evRx84UTSNslaqT4MTk7sq+HdnsNJBSiSgA3o7tZxaLVgOUJIBggilFUiG2+xTawkC/6QBTh/nHFvpuImyDk1TJJCSpgaBnPIOQH6mOAkjY/Ly5Qr4lctX6U9beV4hIyocJIyoooZnLkJyuSaU0N3EDdFkrJUmUE2AFSSwu5JJ9ST5wfD8mL/fraE4dRyi9hQlyKWJ19Yqu0XaaVhUKzKCpgDhA0fVZrlTzvsCWc3KrLRhKcqjyyXjeKSpcxEpamXMbKLgVYEn8oKjlBiQZwLEVLabHZxuI8N7QcXmzZvxCy5qg6Qo5Uy0s4mKqyWLFILgXqogncYztcZncl3YZmZ3ari994RPJkirce+v8ml6XlRT/AHNLx3jIw6HSkLyjT8v6nlGCn9olzQZhYKelB02pFkqf8RBSTUioigxPBQgnUklkgGmveNk6XBNqawvS48mWd5eGna9K+5dYoqLok4PHJmLddVDxKbKRX+oVfpeK/jOPngtK/ny9UzlOW2DBPKuZ6RXKS1VkDUJNAmlmJqa1JrfSkKncXQMuUFQHiLUroI9RhxRuzzmtckmoxE4nEFSe8hSC1AVhQ8lUUOhBteNf2bxcwCTNGrFXtmPoW84xWMmJIcHWwNddNoveGcQV8KRLDAOnMWNEgh/OjesNzxuNHNwVuUuj1dU0kljyY25aV/c+VJxnFFKghMpRoKnw38LE/LeLDiDBQUFJBVVqORzBZx0q7XtFXOm50uxOlbG9HrVvmLRxsa5s7OWVqjK4ucPjBIzJUdKhwYk4HFpJIuQ4vE6Zh1ZnWkBgK9fsamIMrAJQSUpZ/v7EdNSTjRy3FxlZJQ40Dch8vvWJ/C0qUeemw1IryisVNISa23hfD8SRQa0O7cjFZRbRaMkpIvPxASdqxa4YILHKSWq5oNvdh5xmygrINmt+nWNDg0qTLap5PV+UZcsUkbMMm2KEpUxRdP0iXgcOJeZIGtK3/a8cw4IqQCPfk3OJykuLsPeM0peXka4QXfmCDpHAkuLMNNeUcShh63v6xHTOWbpZ3YA7ag+nO8LSGtkhSTs/nBCpSiQKNyggJOzGo/3pCJphxKoamVMJn0XRFXNr9LeccTNoCdtP0hgyw4Uob3Au9GG9PQwtCwFUFCC/Wja7U9No5u93y6NG1UT5cylOscBeIyZutP26w5LWKEffSNSyqVCnGh5bgggEuWNbXq2sKJcF+lIShZareUNmYoGjN3adTXTQW92vGhSRSh9Wm3ygJMNqmnRner0DUc+8Clu+l4taIoEDVRB12a7exaOqWK1s7vCUjugGvXXrz1gzMkVo1SdojcSU/anjIw8o5S0xQIRyLX8vnHlWJxJmqMwOpX5pSiC5DfzP7iAAMptztFn2q44iZPUboKiAGr3RVQ1A59Yz+Pk5QFpVlFMq2YckzAPZX+o5Us8p5KXXkep0WljhxLcuX39iBxEAoyv41DOp/G+r3IDkje/S0xKELVnIykup3Ztb6DnFQiaqZ3ihlBeV0tlUWck6OBUkUrW7xKOFmYg5UAqSGoBVZ6MabAiPR4YPYt5ytbKO9qC7JieJL8MlaiLFZNT/AIPVI536RDxMwhOUy3SaljV67h9TF7hOx2K/LIWBzYfNvlGgw3YWar/qqSgf21O3T3iPFSkWU8UcO26Z5iMKgnNbkdesOrlMC9AWdRpazP8ASPZ8B2HwkoupHxFf3a9AIxn8QuzCpQM6WM0o+JOsvpy5+sacWoTlSORm8OnwefSMSkLZAKm1ajfX2jTSMYAXSksahwX6WAakZzA4WWpRYgFtQB66eYYRJxcxUtSBlS/mkN/3UN7gtG5Svhs4eeC3XE9q7P8AF/jSkkKSFISEqcbAgeX6Q/JlCqk3TUNpvyLsBW3rHmvZ3jJlKCwpILlxnTUc49LwmMC0JWkhQWWob1FH5Wr9Y5uow+HK49Mfp83iKpdoo+N4hCErSB/MXs9CwqdmH0jNYGWCoCoW99fWLziyiSwIJCWYCo6gfdIoMRhlo/mAvvSwNBrV42ade7VmPPe66HcZJmElLOHv+sP4QrR96vVok8IxhmOFDo4+frGhlcPSp3Dt6g7j73i08u33ZIIYN/vRYnhMoraYuiRbqWr6xoHZIOmzU5ecV+DzpQwDl3FR7PaxPnEiahRAc8mGhvtHOyPdI6OKO2JMkYjMKpcG/Tn5Q5OCiGDbg7c9flEfDFQIZIq17s3vVuYe0PonuVHMlnIDXcECpfQ0IbaEPvg0x5XI9IllgVGt6BvIgGu0LUS42b76xHmqCcylF03YsyaVLs+5cnUxHmT0zJWVYORQZRdwxF31BoPOIqyzkkizRa7wRHwk2WUJKD3Wowb2girRZPgRNxATrEZePd2cc9YrRMc3vq8OMaa0rHnJ6yb66OksEV2OyxmUSSX6w4pKnqBlq5e1PesQ5y6VHy+oMSpE4vR2vqfR+WkKx5It0y0ovtD2RKWygsz+7mujvCVA53SwLM7VD1Jtb6x34hUCMtR7xADJL3PXZvbTqIfPIo1XXyoXGLf7lsSSWrQO7hiWIa/zhAwoDMXZRUM1SmivA7l+8R0LRBTii4Iux/UfvD6JoJCripcioLAUOlodj1cWyssckTPj5AxdRe7bm5sKataImHmzfiKMxQCMykoTfMGcFRYEG9NgPNBSVZqBKld0G9BUWtR2MQ+JzsksjP3wl6s6gN/s6w96i1YQx29q7ZeGe6HFCd0m9qgsYx3bTtCEpMlJt4yDVv6ept/owniXaVMuV3CTMUAO9cbEaVc00aMMnHZipagCAWS9StQq/MBx5kbmFTzyycR/n7HQ0ui2S3zXXX5+epExiFkFj8OYtP8AMU3glXKK2oxPNhcmKP8AGL+ITLSoSrZVlyA1f8h1i04jOHeRma5Wq9RVuYSfVR6QcBwmeeSl3SpQlJNszqIJOyQ6ju3OO9psGOGNSa5orkzTc6T4LXsHw8Yv4iVSloly1MSWcktmFbFgkPVhzLx6vwrBy5Cfhy0ZU7geL/I3q5vtFLwuQJctKU2SAA9H5nr5xc4OaBry6frGWeo3P4GPLBvss0TRVjY97lT3pDYmXDnqG6uLjWIE3GlKe4z3D83cmj6kwyiYbgh2FVP0qblvflERlbFrA6tlmZ4I7pOm1nvWjxGx84FLM7M4CM1DQgpvr6Q1NRmRluSKg1FbvvflSEpCwwTlIFPFYClBT9rQ+Jmyx44POO2/Yoy//UYYH4dygeKXzGuX3HvGZwOIIoshjrlzJJ/uRY9Qxj3zDLd2ahY6trUkcwW61MZLtX2DRNebhcqJtSqX+SZu39CulDtcx0cGqj+nJ8zmZtPJq4fL7fYwaFhLHKnLoqVM7vPuzWboFmNn2V4ylLpzlSFaMykncBRqNykmPP5XxZMxSGUiYCxQxfoRvzvWkW+CxiSqy89inMkKPIFaTmr+XODyMbM2NyjXaOfB7J7kuT1DE4V1HvEOAHCRp++j/OMrxjCKEwgBgWOYkDStjRiYi4rtZ+FkJmk55b5FJWSlUsi6SGzA+Gh0NouJHaGTNlIXNlZPiJBAJClgcwwAHOMONThKkrNuRxnDc+Aw3BJSR3lnOSLEfr7isWUiYEh3VQEqtU2PmToNj0jBYzi8iXiTK/FlBJSzghJIZQS9g2YO7CtI0srDKYJWWINiT6iGThfcrKwe3+2i7weNfNWrlmAepD6NrflFbju2UmSAmUnMxAUCClw9WcXvalY5iBMQlpRYm/Ma+dGeKnE9mlzVJY5T6O3SkVhixt3PovPJkqodmswfaFKgCQoA95r6M3PpE1OKzJRMr3nyjLlUKEspySGsedWjP8NwSgQk0KRVy9dnL6cttYs8Ke6EklqgqSpSVhmNWbz0tGfJCC/SOhOf9xOMhSWygWoPyh6kihIoDyO0VnE5uRUpISoADLlSHSpI8ScpcWb7BaWjGk3BSGqWbQVqSxd9ddYquJTFKTKPxOYLO4KSXLUDmv20GOPPJM5KuCBiJs1SipGPMpJPdliQkhA0S76QRWBC/wCk+Yr5sGfpBG3YvxR+xi3v8b+5pMQvKpw33q3OHpOKBb6aRFnEqSR+ZtfaGZEvKRXTzj5fObT4PdbE489llNUDp1iRw/GJVRj3QDUUYk29IipNGe8cQjL3gHarBr9T5ekGHPWRGecVtLdUxxodR6fuYrp1Hc1NH2jmJn0v+vlFb8eprcxoz6lBhwt8kmViKUa9ybbwoY5JdJDg0+3iGlQeghlZY7coRHM74NDxRfZeDiKMry6G2VThVHS7HSl4yvGcUnPUgC5JDeR9jF2nEkoIHvtGO4vikqBQWKVAhyMwzaGo0Uxjbuc2l5E6aCg2ynxU0rmKzFkip5JpXqXDDmkamImKn5f5liQ0pP8ASmoKuru25c7RaY3Cul1l7GYUn/qLYskHa9dBmVcgRXSeHzMQsnR2LBrUYaJSLB9rGkdTSOKXBsy5N0fz8/P3IfCcMZx+GhOYnb2HQVrqXjW8P7PIw84zFTUTFgfygkMJam76qvmUS4B0A8oXhpKcMn4aWTTvKNN3AJ5a3LaUhiXLTmK5qj3myFyAQwZydQ9K1vHRllk1tEQ0qyPc/wCPiWcviqHLqLpPicsl+hqL1p0izl40gkKNmI5nT6RTTZsuYMyQEkkAsbjQUoYsuHYUnUFtX1B1oYRODfQ7LjxxjbVF4mcFi1PbQedHiLxRakKQBR1B31B0Gg6xO4fhkhRJSQx7pplVQOQBatK1ofN+YQSCFUD05tvq0NxwaORLLGEvgPpxKQhLu5DVqXbcX1hqTfvF632PhfZ2enSIIXMUrujKwJJqQXdmZnsPeJeHQQkBSgaVNi+7RrSObP0Jap7FjVga/Y1vTnyhGM41KlAGYoJe1R3mFq8tT9Yq8bMZQSpYuMpBZ9B1PT6RQ9o8PJnMjEJUcrsUqKWFHBINQW12gSXmNx4N3CKXtf2twOJIPwlGcgtmRMSCR/So5S4fYFt4zcnjstTgYcAM9VlVqm5GgJ8osuI9iJS6yJxS9kzA49Qyh7xmsTwfESXCpCmIbNL76SLmqXAelCxZ46GHNFLbF/UJ+z8TdzgW/EFSMQUK/ELklCCBSwdJIzJVsCAC470WUriaJTJRilEMMrS0J0DUEo2t+kYMKNE1Dl/Kv7+kPzOKAhJ+FKJqSSCSoaA94aU8o1R2t2zJn0UFGkW8jAmZi0zFqSpAqFOBmLuWBI1Uq1qCN5/zs9Fj8RAulQzKT/ck0UWFSk1aopHlyeIJWe9JlA7qKgB5mZF5gOIBLBSsMwZmxRCk9HK/pyIi88a/c5+XDKT4dUazh/b9Yxv4dclC0E0UkkEB2cu4IudLRop3a7xFMtIy61pox3LV5OBHk3CZCkT1zzMlTVVyhExNXzWqGNXteLyXxuUAEzEzUVBVmRRgXAToQ9bkkiELTwu5IXnllikoehOx3bXErlqJmhJQbpATR6tR7X0jYYDjRm4dExLKOVIWUpbQhSRXRRO+u8ePTpClBQRVIbzBesep8HR8LD4dCi5+GlyOYCidvEpt/eK5oRSVIjG3zci5wmPCkhQQoZRpz1Z+cM8Qx8vMiWxClKBUooIYd7vqPh0Pq8QU95WYhQbwhLl20LfWJk+WMi1J7qlAfzMqSbhkgGh3rTvcoS4JMYpNoTOws7Mcolto6ST1NvlBDOIx0wKIEqYRoQpDHmHDwRZKXwFtq/Mr8PxSWlDFTk1ppB+PBIqev6Vii/45QSXSX+W8OYaWuga3tHzWUI1wz6e8OPlpmnGMOU5WKhZzb0hyVOOUFxmLPtby2isw4WRRJ2sfsQzOVNAIUCkDUi+zQhQZieBOXZPOPOZQUGAcAk358ofkKf6PGfkKu9d+cTpEwgOAW3YmJnEt4DjEvJCQDf8AaKOZxopLTUgGx05ivT2aHFzlCpfe0MYnCJnO4CVKIJUEOTYMdDQAVflGjTqO73iixpcvkdxHEUrHcWUgpchgXG4ctSr0eM5jZa0oQl2zZlOr8qDUqIHJh0LXUIkYnsmtbpSsIAYpUlSg5/xOYBj84rOJLmySZWIQClZSk4gk5KNlSlRHcH1Jvlp3dNDG/dizJkUYyuxwKmzUtJT3glXwUqUBma6ybPq2rMGCRD/B8PPw+FAXMKlnvkKUFBHSp/2bw5wNKysq7pSBZKgpILZU5Qk5kbXYgVejTcSFrBCxpYCg510cO3KGZcqwrw4fu/UtihvmpS6XkVmExSpxCyVMlQYku/KtxUnyidOwwmuO7mZiCACQKgivhNADC8gAagIFXFL6F+Xyhcod4qfMoMBW2mvn7wzTycv1HThkjF2uBUmSZSUhZagrv6wmcACoZiHBFDU/Mx3G4lRbOKNYjX39Yr1mtU+kbdtFZvetxoJfG1kMF+FNialulS9vKIeJ4gtaiFKPJIV4aliefPlFTLmJBOm24POm8Mz512B2oLXgUq7MePRbm2jV8M4stCVkqJCQGKtDtz+kJXxw1Ieu59x62jIr4qUgJqLF2ibgsQtQJSQTzSSR1P0iyyW6Fz0EYJyaL2Rj2VUm7+1q84RxLiObfY1oebadIzMzHkKLiuxP6iO4Zapgvro36UiJZOB2PRJzUkWSceUtdq092eIuF4qpwAopAO+tednhC8BMa/yEV0uSa1eukZIZuXR0p4Y0bTAT0KZJSAoOEr1qSSQ8XE/DysjLRLKRoQk+zRmuEliwdhzce8T8ZPJSwU2wBYegpGnHnTOJn9nvLLh0hnEdm8Ct3w6Em7oJR/4kRW4vsRgzYzU9FhQ/+6VH3hyViMpdRcA2hE3iwYsn3DRuWaS6kzlPRyUmmrKnH/w57pMqeCp6JmSyPIqQb6+GK/D9kMbLCiJ6JbAslE5feOwDADzjQo4pMCSzEPqRHcPjZmYFSW1AChsxN603EOWebXZmngSdNGV4VjJiFqROUr4pLkTEkmwoaGhFXfnq8ehcKmKOHCyoNXKKeEMBo9wfJoxfHMfLXOKGBmqKAlJNPCGuWbXMecWAX8GWJcpTkO5e6qBZHmLaU2jQ5WkjlPH78n/BoBjgGUrMl/EQS55AjSx3pDp4wDmAWp7sRYW3fpGJlGeSL15OK683h9Mie4dJYGrAOeQ1izSI8P4mtHHVCmZPpBFAMIvYfflBEVH0Da/U3v8AwLkmoZ3INy1RQ/OK6d2dWiWClbpBfyOvyjcBlDNlcMR+1HgxGEcAhwx9eseBno6VxPWx107qRjfwxJ2tVh6Q+jCKcAkcnSD6e8X+IwzXAPJrwz/x47pFA5vGCWlmm0P/AKpNFYODqKnzAA3ASA2/V4iY3gSh3kKatvreNRKkpGr+21ecPnBg3tFlo5t8ClrJRff0MGvhcwm7tvDSOHl7uOdt4207A5h3bc+cVM/hyh1+zEyxSx9mvHrd3wKKXwiWS7Pu+sSEcEkN/wBNJ6p+zpF7h8KcrlIJ025e8Km4QunfVvl0DmJxzkhOTLudWU0nhUtLKAyuADQAXd2A8XnFl/xySMxJAAqCo5Rrex6xaDAuOkL/AAlrhrMfnG2MZN8oyvIvUxmP4bW2leuwpWI8nAgNc1Dv9b7v1A0eN5icAFvoSL7c4rU4P4feYHcKB0On3rHRxZHHhD8eeLjRm/wKFOSqgru0Rcfws0IVSNXipCWKspqzgCsdn8LzpzS25D5xpWaXmWU4R56MLL4QS2ZVC5fUX8j+8KRw1ac4PeqQBXZ9iDcfYaNQcEo/+2oZSxIHrf6Re4bhaQWVU7gU6PF/FXmO/rFhVI8xPZ8lIUyi7EAhlB9wYew3ZObk+IlahqRV/TePVFcJluKElxz1d225wuTwuxUQVd4ZgnL3SXAbcAJD8ucWSEZfam5Hkf8A/LTJpKs5GhpzZjbVvWJ2D7IrlBisP/kzDcx6JI4WEEDY0CS1CrM5HI0fVubRGVwl7oTnBUBsXqW9/RUTKNhD2g4vh8GJncGmJWA7nTLfWtdKXiIOATXJShf/AMWp+kemcK4UUEkq2GVww3aJs6QpRIo1LXhawxTst/y8064PPcL2amJDpNw9wOgpCJmAU4FHNg97UjdngpCkLQtTpDFP5SHe39XOJB4TLXVSf1/aLqKEL2lJPu0eW4jgUzaG5XZ9w6gfWn7R64MHLAyAC1tSPP5wiVw+XLskAaCHb+OjLLVyk22zyzEcJKKBJYb3f7EWPBuFylv8QE7VIrrG+VhEVUzAhu8bBv8AQrzikxfCFpUyACGcGLQkkzPlySnGiLK4PJWfA2hclyORfrCsVwiQlNAvYMo+3lFeZayrJ3nSAaP89ekScLKmAutz102pGhPm7MMoNLlHB2dkquK8/wBYbx/AkJRmlpD6A06/WL2QtwCPa0LM1qKqL9ItvlYikYxeDWCwSW6QRppyFZiyUNo4LwQ3xBW01eVvpAp9hy/eOwRx6OsR5iAqhDVpW+o+sHwAmwBLu5++kEEZ3CLt1yX3PoWZFXH3yjpkmCCGLDDsruYiZK9YZ/CPcCCCEy00JumWU2hYwwDUh5OFS1oIIZi0+OPFEObOfhy96Vp6fv6wiXKJrppBBFnhhdBuY4JeXc833P0hJw4cElyAPq/r9BBBDNkV5EbmMT+GoWqqUt01+29IblYMIu/dT4ibg3cCmgjsELlBUXWSXQ+nCdG1pehh8ygNB+/20EEMWOMVwUcmxUtFATQ7O8cOHT7u99jq+wjsEMIsJiIiSSpSS6CkhWWpBKwC2bu0YirGvIWgggBMknDpKgogEpfKdnDFtjpDzR2CAgISlLQQQAJ+CnNmYZmZ2q12e7QjGrCUKUVZQEkks7MLtr0gggLQVySOTcPLmoyrSlaCLKAII5gw6ZQZmptHIICG30NjDJFS+lNB0EdOER/SPSOwQA+RidgEt3Qx0284gTJG4gghsJPoRliuxCpPKCCCGWKpH//Z" alt="Cricket in West Bengal" />
+            <div class="image-overlay">
+                <h3>More Than Just a Game</h3>
+                <p>A sport that unites people across generations and backgrounds in West Bengal.</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>About Cricket</h2>
+            <p>Cricket is one of the most popular and passionately followed sports in West Bengal. From street matches to club-level tournaments and professional leagues, the love for the game runs deep across the state.</p>
+            <p>The iconic Eden Gardens stadium in Kolkata stands as a symbol of the state's cricketing legacy and is one of the most revered cricket venues in the world.</p>
+        </section>
+
+        <section>
+            <h2>History of Cricket in the State</h2>
+            <p>Cricket in West Bengal has a rich history, tracing back to colonial times when British officers introduced the sport. Over the decades, the sport grew with strong institutional backing and cultural support.</p>
+            <p>West Bengal has produced many notable cricketers, including former Indian captain Sourav Ganguly, who brought immense pride to the state through his leadership and performance on the global stage.</p>
+        </section>
+
+        <section>
+            <h2>Popularity</h2>
+            <p>Cricket enjoys massive popularity in West Bengal, with fans closely following local leagues, IPL, and international matches. From children playing with tennis balls on streets to packed stadiums, the enthusiasm is unmatched.</p>
+            <p>Cricket clubs and academies across Kolkata and other cities train aspiring cricketers, fueling dreams of representing the state and the nation.</p>
+        </section>
+
+        <section>
+            <h2>Rules and Gameplay</h2>
+            <p>Cricket is governed by the rules of the International Cricket Council (ICC) and locally managed by the Cricket Association of Bengal (CAB).</p>
+
+            <ul class="rules-list">
+                <li><strong>Format:</strong> The game can be played in various formats—Test, One Day International (ODI), and T20.</li>
+                <li><strong>Teams:</strong> Each team consists of 11 players with batters, bowlers, all-rounders, and a wicketkeeper.</li>
+                <li><strong>Objective:</strong> Score more runs than the opposing team within the given overs or innings.</li>
+                <li><strong>Equipment:</strong> Uses bat, ball, stumps, protective gear, and a large field for play.</li>
+            </ul>
+
+            <p>Cricket blends strategy, skill, patience, and athleticism, making it a deeply engaging sport for both players and spectators.</p>
+        </section>
+
+        <section>
+            <h2>Benefits</h2>
+            <p>Cricket contributes significantly to the physical, mental, and social well-being of players and fans:</p>
+
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Fitness and Stamina</h3>
+                    <p>Enhances cardiovascular health, flexibility, and overall physical strength.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Teamwork and Discipline</h3>
+                    <p>Fosters leadership, strategy planning, and collaboration among team members.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Community Engagement</h3>
+                    <p>Acts as a medium for cultural exchange and community bonding across the state.</p>
+                </div>
+            </div>
+
+            <p>Cricket continues to be a beacon of pride, identity, and unity for the people of West Bengal.</p>
+        </section>
+
+        <footer>
+            <p>From gully cricket to Eden Gardens, the journey of cricket in West Bengal is nothing short of legendary.</p>
+        </footer>
+    </div>
+</body>
+</html>
